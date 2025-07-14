@@ -1,0 +1,4 @@
+Name,Given Name,Family Name,Phone 1 - Type,Phone 1 - Value,Phone 2 - Type,Phone 2 - Value,E-mail 1 - Type,E-mail 1 - Value,E-mail 2 - Type,E-mail 2 - Value,Birthday,Notes
+John Doe,John,Doe,Mobile,1234567890,Home,1987654321,Work,john@company.com,Personal,john.doe@gmail.com,25-12-1990,Met at tech event
+Jane Verma,Jane,Verma,Home,9.19877E+11,,,Personal,jane@gmail.com,,,,Old college friend
+Amit Shah,Amit,Shah,Work,9.11235E+11,Mobile,9.2E+11,Work,amit@company.com,Other,amitshah@yahoo.com,15-03-1985,Client from Delhi
