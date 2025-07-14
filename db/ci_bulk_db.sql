@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 05, 2025 at 12:09 PM
+-- Generation Time: Jul 14, 2025 at 06:26 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.0.30
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `admins`
@@ -53,12 +53,11 @@ CREATE TABLE IF NOT EXISTS `admins` (
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `role`, `status`, `email_limit`, `country_id`, `state_id`, `city_id`, `new_pass_key`, `new_pass_key_requested`, `last_password_change`, `created_at`, `updated_at`) VALUES
 (1, 'Admin 111', 'admin@gmail.com', 'e6e061838856bf47e1de730719fb2609', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Test B', 'qowuzicy@fxzig.com', '25d55ad283aa400af464c76d713c07ad', 2, 1, 1000, 95, 12, 50, NULL, NULL, NULL, '2025-07-02 13:20:41', '2025-07-02 13:20:41'),
 (4, 'Test B', 'vulugo@fxzig.com', '25d55ad283aa400af464c76d713c07ad', 2, 1, 1000, 95, 12, 50, NULL, NULL, NULL, '2025-07-02 13:21:19', '2025-07-02 13:21:19'),
 (5, 'Test B', 'sagizaru@forexzig.com', '9c4788b2e17b26344608c3079f688bc2', 2, 1, 1, 95, 12, 50, NULL, NULL, NULL, '2025-07-02 13:22:18', '2025-07-03 05:31:46'),
 (6, 'Test Admin', 'cosiroli@forexnews.bg', '25d55ad283aa400af464c76d713c07ad', 2, 1, 2000, 1, 94, 93, NULL, NULL, NULL, '2025-07-03 04:42:20', '2025-07-03 04:42:20'),
 (7, 'Xvxc Zz', 'huwugyqy@fxzig.com', '25d55ad283aa400af464c76d713c07ad', 2, 1, 500, 1, 94, 95, NULL, NULL, NULL, '2025-07-03 04:56:42', '2025-07-03 04:56:42'),
-(8, 'Vesatofo Patel', 'vesatofo@forexzig.com', '42e4a7a8f2d70a24e23405683f5bf8e5', 2, 1, 10, 1, 94, 97, NULL, NULL, '2025-07-03 10:42:38', '2025-07-03 05:29:47', '2025-07-05 11:39:28');
+(8, 'Vesatofo Patel', 'vesatofo@forexzig.com', 'e6e061838856bf47e1de730719fb2609', 2, 1, 10, 1, 94, 97, NULL, NULL, '2025-07-03 10:42:38', '2025-07-03 05:29:47', '2025-07-05 11:39:28');
 
 -- --------------------------------------------------------
 
@@ -74,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `bday_whats_app_msg` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `bday_whats_app_msg`
@@ -94,23 +93,22 @@ CREATE TABLE IF NOT EXISTS `birthday_templates` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
   `email_subject` varchar(255) DEFAULT NULL,
-  `email_content` longtext,
+  `email_content` blob,
   `smtp_config_id` int DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `birthday_templates`
 --
 
 INSERT INTO `birthday_templates` (`id`, `user_id`, `email_subject`, `email_content`, `smtp_config_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '🎉 Happy Birthday from Leaders Dimension!', '<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: auto; background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; padding: 30px; text-align: center;\">\r\n    \r\n    <h2 style=\"color: #FF6F61; margin-bottom: 10px;\">🎉 Happy Birthday, [Name]!</h2>\r\n\r\n    <p style=\"font-size: 16px; color: #333;\">\r\n        Wishing you a wonderful day filled with joy, laughter, and sweet memories.\r\n    </p>\r\n\r\n    <div style=\"margin: 30px 0;\">\r\n        <img src=\"https://cdn-icons-png.flaticon.com/512/2278/2278992.png\" alt=\"Birthday Cake with Candles\" width=\"100\" height=\"100\">\r\n    </div>\r\n\r\n    <p style=\"font-size: 16px; color: #333;\">\r\n        May the year ahead be full of amazing opportunities and unforgettable success. We\'re lucky to have you with us!\r\n    </p>\r\n\r\n    <p style=\"font-size: 16px; margin-top: 30px; color: #777;\">— Cheers from all of us at <br><strong>Leaders Dimension</strong></p>\r\n\r\n</div>', NULL, '2025-07-03 13:03:21', '2025-07-05 07:18:48'),
-(4, 1, 'test birthday', '<p>Hi,</p><p><br></p><p>Wishing you a very Happy Birthday! 🎂🎈</p><p><br></p><p>On behalf of the entire Leaders Dimension team, we hope your day is filled with joy, laughter, and wonderful moments. You deserve all the happiness and success in the year ahead.</p><p><br></p><p>Thank you for being a valued part of our journey — we\'re lucky to have you!</p><p><br></p><p>Warmest wishes,  </p><p>The Leaders Dimension Team  </p><p>support@leadersdimension.com</p><div><br></div>', 0, '2025-07-04 05:24:01', '2025-07-04 12:40:43'),
-(5, 8, 'ZXCZS', '<p>ADA bday</p>', 0, '2025-07-04 12:13:28', '2025-07-05 11:50:45'),
-(6, 1, 'zxczc', '<p>ZX</p>', 9, '2025-07-04 12:42:20', '2025-07-04 12:42:20'),
-(7, 8, 'H b\'day', '<p>Happy wala birthday</p>', NULL, '2025-07-05 09:49:34', '2025-07-05 09:51:08');
+(1, 1, '🎉 Happy Birthday from Leaders Dimension!', 0x3c646976207374796c653d22666f6e742d66616d696c793a20417269616c2c2073616e732d73657269663b206d61782d77696474683a2036303070783b206d617267696e3a206175746f3b206261636b67726f756e643a20236666663b20626f726465722d7261646975733a203870783b20626f726465723a2031707820736f6c696420236530653065303b2070616464696e673a20333070783b20746578742d616c69676e3a2063656e7465723b223e0d0a202020200d0a202020203c6832207374796c653d22636f6c6f723a20234646364636313b206d617267696e2d626f74746f6d3a20313070783b223ef09f8e892048617070792042697274686461792c205b4e616d655d213c2f68323e0d0a0d0a202020203c70207374796c653d22666f6e742d73697a653a20313670783b20636f6c6f723a20233333333b223e0d0a202020202020202057697368696e6720796f75206120776f6e64657266756c206461792066696c6c65642077697468206a6f792c206c617567687465722c20616e64207377656574206d656d6f726965732e0d0a202020203c2f703e0d0a0d0a202020203c646976207374796c653d226d617267696e3a203330707820303b223e0d0a20202020202020203c696d67207372633d2268747470733a2f2f63646e2d69636f6e732d706e672e666c617469636f6e2e636f6d2f3531322f323237382f323237383939322e706e672220616c743d2242697274686461792043616b6520776974682043616e646c6573222077696474683d2231303022206865696768743d22313030223e0d0a202020203c2f6469763e0d0a0d0a202020203c70207374796c653d22666f6e742d73697a653a20313670783b20636f6c6f723a20233333333b223e0d0a20202020202020204d61792074686520796561722061686561642062652066756c6c206f6620616d617a696e67206f70706f7274756e697469657320616e6420756e666f726765747461626c6520737563636573732e205765277265206c75636b7920746f206861766520796f752077697468207573210d0a202020203c2f703e0d0a0d0a202020203c70207374796c653d22666f6e742d73697a653a20313670783b206d617267696e2d746f703a20333070783b20636f6c6f723a20233737373b223ee28094204368656572732066726f6d20616c6c206f66207573206174203c62723e3c7374726f6e673e4c6561646572732044696d656e73696f6e3c2f7374726f6e673e3c2f703e0d0a0d0a3c2f6469763e, NULL, '2025-07-03 13:03:21', '2025-07-05 07:18:48'),
+(4, 1, 'test birthday', 0x3c703e48692c3c2f703e3c703e3c62723e3c2f703e3c703e57697368696e6720796f75206120766572792048617070792042697274686461792120f09f8e82f09f8e883c2f703e3c703e3c62723e3c2f703e3c703e4f6e20626568616c66206f662074686520656e74697265204c6561646572732044696d656e73696f6e207465616d2c20776520686f706520796f7572206461792069732066696c6c65642077697468206a6f792c206c617567687465722c20616e6420776f6e64657266756c206d6f6d656e74732e20596f75206465736572766520616c6c207468652068617070696e65737320616e64207375636365737320696e2074686520796561722061686561642e3c2f703e3c703e3c62723e3c2f703e3c703e5468616e6b20796f7520666f72206265696e6720612076616c7565642070617274206f66206f7572206a6f75726e657920e28094207765277265206c75636b7920746f206861766520796f75213c2f703e3c703e3c62723e3c2f703e3c703e5761726d657374207769736865732cc2a0c2a03c2f703e3c703e546865204c6561646572732044696d656e73696f6e205465616dc2a0c2a03c2f703e3c703e737570706f7274406c65616465727364696d656e73696f6e2e636f6d3c2f703e3c6469763e3c62723e3c2f6469763e, 0, '2025-07-04 05:24:01', '2025-07-04 12:40:43'),
+(5, 8, 'ZXCZS', 0x3c703e41444120626461793c2f703e, 0, '2025-07-04 12:13:28', '2025-07-05 11:50:45'),
+(7, 8, 'H b\'day', 0x3c703e48617070792077616c612062697274686461793c2f703e, NULL, '2025-07-05 09:49:34', '2025-07-05 09:51:08');
 
 -- --------------------------------------------------------
 
@@ -125,7 +123,8 @@ CREATE TABLE IF NOT EXISTS `bt_smtp_contacts` (
   `bt_id` int DEFAULT NULL,
   `contacts_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=418 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Dumping data for table `bt_smtp_contacts`
 --
@@ -253,19 +252,16 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=50420 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `user_id`, `name`, `birthday`, `company`, `job_title`, `address`, `note`, `country`, `state`, `city`, `created_at`, `updated_at`) VALUES
-(6, 1, 'Zczx', '2000-02-02', 'Adad', 'Vcxv', 'asd', 'weqe', 0, 0, 0, '2025-06-30 17:53:19', '2025-07-03 11:16:36'),
 (7, 1, 'John Doe', '1990-07-06', 'Xvxc Dsf', 'Wrw 33', 'srr', 'Met at tech event', 4, 198, 112, '2025-06-30 17:53:30', '2025-07-05 15:40:09'),
 (10, 1, 'John Doe', '1990-12-25', 'Sfsfs', 'Fsfe', 'sfsf', 'Met at tech event', 0, 0, 0, '2025-06-30 18:03:13', '2025-07-03 11:16:36'),
-(9, 1, 'Amit Shah', '1985-03-15', 'Zza', 'Xvx', 'wewqe', 'Client from Delhi', 0, 0, 0, '2025-06-30 17:53:30', '2025-07-03 11:16:36'),
-(11, 1, 'Jane Verma', '2000-03-16', 'Test J', 'Designer', 'dssd', 'Old college friend', 6, 213, 102, '2025-06-30 18:03:13', '2025-07-03 11:16:36'),
-(12, 1, 'Amit Shah', '1985-03-15', 'Test Company', 'Test Job', 'Dubai, UAE', 'Client from Delhi', 1, 94, 105, '2025-06-30 18:03:13', '2025-07-03 11:16:36'),
+(12, 1, 'Amit Shah', '1985-03-15', 'Test Company', 'Test Job', 'Dubai, UAE', 'Client from Delhi', 1, 94, 97, '2025-06-30 18:03:13', '2025-07-07 11:56:18'),
 (30013, 1, 'Da', '1999-07-02', 'Zcx', 'Asd', 'v100/2,zxczxc sdasd,xvv394210', 'xzc', 6, 213, 106, '2025-07-02 15:38:09', '2025-07-05 15:39:42'),
 (30014, 8, 'Xcv', '1989-07-05', 'Zx', 'Sdas', 'xvv', '', 1, 94, 97, '2025-07-02 15:39:09', '2025-07-05 15:31:57'),
 (50419, 8, 'Olivia Yang', '1956-07-05', 'Dasd', 'Asd', 'qweq', 'Interesting without couple resource actually citizen.', 1, 94, 94, '2025-07-05 15:18:18', '2025-07-05 15:43:55'),
@@ -566,10 +562,10 @@ INSERT INTO `contacts` (`id`, `user_id`, `name`, `birthday`, `company`, `job_tit
 (50124, 8, 'Jeremy Myers', '2005-07-26', NULL, NULL, NULL, 'Really manage stage including question great.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
 (50123, 8, 'Harold Perez', '1998-11-13', NULL, NULL, NULL, 'Beautiful box safe series down.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
 (50122, 8, 'Evelyn Martinez', '1965-09-28', NULL, NULL, NULL, 'Any behind conference finish.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
-(50121, 8, 'Kyle Lopez', '1967-06-14', NULL, NULL, NULL, 'Simply part development good.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17');
-INSERT INTO `contacts` (`id`, `user_id`, `name`, `birthday`, `company`, `job_title`, `address`, `note`, `country`, `state`, `city`, `created_at`, `updated_at`) VALUES
+(50121, 8, 'Kyle Lopez', '1967-06-14', NULL, NULL, NULL, 'Simply part development good.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
 (50120, 8, 'Eric Dyer', '1969-05-01', NULL, NULL, NULL, 'Able long house item one this.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
-(50119, 8, 'Ronald Greene', '1991-08-25', NULL, NULL, NULL, 'Me year mean ever north year whole.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
+(50119, 8, 'Ronald Greene', '1991-08-25', NULL, NULL, NULL, 'Me year mean ever north year whole.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17');
+INSERT INTO `contacts` (`id`, `user_id`, `name`, `birthday`, `company`, `job_title`, `address`, `note`, `country`, `state`, `city`, `created_at`, `updated_at`) VALUES
 (50118, 8, 'Richard Ferguson', '1968-11-18', NULL, NULL, NULL, 'It including kind investment air yes serve.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
 (50117, 8, 'Kathleen Wyatt', '1951-12-13', NULL, NULL, NULL, 'Pattern similar mean company anything interview.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
 (50116, 8, 'Eric Kramer', '2003-09-15', NULL, NULL, NULL, 'East official Congress bar ready involve ready view.', NULL, NULL, NULL, '2025-07-05 15:18:17', '2025-07-05 15:18:17'),
@@ -685,7 +681,7 @@ CREATE TABLE IF NOT EXISTS `contact_emails` (
   `email_type` varchar(25) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=100923 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `contact_emails`
@@ -693,14 +689,10 @@ CREATE TABLE IF NOT EXISTS `contact_emails` (
 
 INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (30, 10, 'Personal', 'qimululu@cyclelove.cc'),
-(35, 6, 'Sdf', 'biwabah747@ofacer.com'),
 (100916, 7, 'Personal', 'nydese@fxzig.com'),
 (100915, 7, 'Work', 'bsmistry99@gmail.com'),
-(32, 9, 'Other', 'jobito7536@decodewp.com'),
-(31, 9, 'Work', 'tejyfuvu@fxzig.com'),
 (29, 10, 'Work', 'gigab60153@coasah.com'),
-(60044, 11, 'Personal', 'pilyluje@forexnews.bg'),
-(60052, 12, 'Other', 'jeyacob585@coasah.com'),
+(100922, 12, 'Other', 'jeyacob585@coasah.com'),
 (78786, 39378, 'Other', 'garciaaustin@yahoo.com'),
 (78785, 39378, 'Home', 'walterswilliam@yahoo.com'),
 (78784, 39377, 'Other', 'xcruz@marshall.com'),
@@ -1727,12 +1719,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (77763, 38867, 'Home', 'tammyrivera@jones-tate.biz'),
 (77761, 38866, 'Other', 'valdezamber@gmail.com'),
 (77762, 38866, 'Home', 'michelegilbert@hotmail.com'),
-(77760, 38865, 'Other', 'thomasthompson@gmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(77760, 38865, 'Other', 'thomasthompson@gmail.com'),
 (77759, 38865, 'Work', 'tracivance@gmail.com'),
 (77758, 38864, 'Work', 'zhodges@pacheco.net'),
 (77757, 38864, 'Other', 'george25@yahoo.com'),
-(77756, 38863, 'Home', 'pauljeffrey@yahoo.com'),
+(77756, 38863, 'Home', 'pauljeffrey@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (77754, 38862, 'Other', 'tsmith@hotmail.com'),
 (77755, 38863, 'Other', 'andrea83@thomas.org'),
 (77753, 38862, 'Work', 'baileycassidy@cook.org'),
@@ -2764,12 +2756,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (76727, 38349, 'Work', 'asimon@lewis-lopez.com'),
 (76726, 38348, 'Work', 'ihenderson@rice-eaton.info'),
 (76724, 38347, 'Work', 'cmckee@yahoo.com'),
-(76725, 38348, 'Home', 'brownamy@ingram.net');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(76725, 38348, 'Home', 'brownamy@ingram.net'),
 (76723, 38347, 'Home', 'xlove@yahoo.com'),
 (76722, 38346, 'Work', 'carolyn20@smith.biz'),
 (76721, 38346, 'Home', 'nataliehowe@hotmail.com'),
-(76718, 38344, 'Work', 'jeremy59@may.biz'),
+(76718, 38344, 'Work', 'jeremy59@may.biz');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (76719, 38345, 'Other', 'sarah06@hardy.net'),
 (76720, 38345, 'Home', 'malonesandra@yahoo.com'),
 (76717, 38344, 'Home', 'osbornemelinda@myers.biz'),
@@ -3801,12 +3793,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (75691, 37831, 'Other', 'contreraskaren@morris-cunningham.com'),
 (75690, 37830, 'Home', 'johnsjoshua@yahoo.com'),
 (75689, 37830, 'Work', 'sperez@schmidt.com'),
-(75688, 37829, 'Home', 'hernandezdana@ruiz-acevedo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(75688, 37829, 'Home', 'hernandezdana@ruiz-acevedo.com'),
 (75687, 37829, 'Work', 'dwood@gmail.com'),
 (75686, 37828, 'Other', 'kaylee41@yahoo.com'),
 (75685, 37828, 'Other', 'hannarachel@yahoo.com'),
-(75684, 37827, 'Other', 'bethany49@gmail.com'),
+(75684, 37827, 'Other', 'bethany49@gmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (75683, 37827, 'Work', 'lopezmatthew@gmail.com'),
 (75682, 37826, 'Work', 'ghudson@nelson.com'),
 (75681, 37826, 'Home', 'fmiranda@yahoo.com'),
@@ -4837,12 +4829,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (74655, 37313, 'Work', 'nsantos@carter.net'),
 (74656, 37313, 'Home', 'johnsonjason@burke.com'),
 (74654, 37312, 'Home', 'normarobertson@ayala.biz'),
-(74653, 37312, 'Work', 'dkennedy@yahoo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(74653, 37312, 'Work', 'dkennedy@yahoo.com'),
 (74652, 37311, 'Work', 'sanchezcarl@hotmail.com'),
 (74650, 37310, 'Home', 'taylorkelly@munoz.com'),
 (74651, 37311, 'Home', 'fdiaz@freeman.info'),
-(74649, 37310, 'Other', 'eduardo07@chan-baker.net'),
+(74649, 37310, 'Other', 'eduardo07@chan-baker.net');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (74647, 37309, 'Other', 'watkinsdebra@hotmail.com'),
 (74648, 37309, 'Work', 'anthony25@ramsey-blackwell.org'),
 (74646, 37308, 'Work', 'jason33@arias.com'),
@@ -5873,12 +5865,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (73621, 36796, 'Work', 'kwhitney@marsh.net'),
 (73620, 36795, 'Home', 'cduran@yahoo.com'),
 (73619, 36795, 'Other', 'conniesmith@yahoo.com'),
-(73618, 36794, 'Home', 'jonesjessica@garrett.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(73618, 36794, 'Home', 'jonesjessica@garrett.com'),
 (73616, 36793, 'Work', 'ericowen@murphy.com'),
 (73617, 36794, 'Home', 'griffithcynthia@brown-henry.com'),
 (73615, 36793, 'Other', 'williamsjoseph@holmes-moreno.com'),
-(73614, 36792, 'Other', 'snydermargaret@watson-martin.biz'),
+(73614, 36792, 'Other', 'snydermargaret@watson-martin.biz');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (73613, 36792, 'Home', 'tracydaniels@gmail.com'),
 (73611, 36791, 'Home', 'sara12@hotmail.com'),
 (73612, 36791, 'Other', 'iluna@gmail.com'),
@@ -6902,13 +6894,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (72593, 36282, 'Home', 'maybrandon@summers-wood.com'),
 (72592, 36281, 'Work', 'williamturner@hotmail.com'),
 (72591, 36281, 'Other', 'robertwilson@ingram-randall.com'),
-(72590, 36280, 'Other', 'brucejessica@zuniga.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(72590, 36280, 'Other', 'brucejessica@zuniga.com'),
 (72589, 36280, 'Other', 'curtisfoster@johnson.com'),
 (72588, 36279, 'Work', 'kconway@williams-love.com'),
 (72587, 36279, 'Work', 'ryanfletcher@yahoo.com'),
 (72586, 36278, 'Home', 'caseydawn@fleming.com'),
-(72585, 36278, 'Other', 'michaelmark@gmail.com'),
+(72585, 36278, 'Other', 'michaelmark@gmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (72584, 36277, 'Work', 'jjohnson@poole.com'),
 (72582, 36276, 'Work', 'shelly20@yahoo.com'),
 (72583, 36277, 'Home', 'william47@gmail.com'),
@@ -7937,13 +7929,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (71558, 35764, 'Work', 'jsimon@hotmail.com'),
 (71559, 35765, 'Home', 'maryreyes@hotmail.com'),
 (71557, 35764, 'Work', 'madelinewatts@mcdonald.org'),
-(71556, 35763, 'Home', 'qwilliams@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(71556, 35763, 'Home', 'qwilliams@hotmail.com'),
 (71555, 35763, 'Other', 'wileykristen@johnson.biz'),
 (71554, 35762, 'Work', 'kstephens@yahoo.com'),
 (71553, 35762, 'Work', 'mfoster@hotmail.com'),
 (71551, 35761, 'Home', 'cheryl15@gmail.com'),
-(71552, 35761, 'Other', 'jasonlevine@yahoo.com'),
+(71552, 35761, 'Other', 'jasonlevine@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (71550, 35760, 'Other', 'gtaylor@moore.info'),
 (71548, 35759, 'Other', 'fking@lee.com'),
 (71549, 35760, 'Work', 'dawn89@scott.info'),
@@ -8970,13 +8962,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (70527, 35249, 'Other', 'oconnellkimberly@taylor-edwards.com'),
 (70526, 35248, 'Home', 'wilcoxchris@thompson-anderson.biz'),
 (70525, 35248, 'Work', 'smosley@yahoo.com'),
-(70524, 35247, 'Work', 'brianjohnson@yahoo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(70524, 35247, 'Work', 'brianjohnson@yahoo.com'),
 (70523, 35247, 'Home', 'williebradley@martinez.org'),
 (70522, 35246, 'Home', 'stewartbianca@hotmail.com'),
 (70521, 35246, 'Home', 'newmankevin@morgan.com'),
 (70519, 35245, 'Work', 'mary03@moreno-paul.com'),
-(70520, 35245, 'Work', 'mackjacob@hotmail.com'),
+(70520, 35245, 'Work', 'mackjacob@hotmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (70518, 35244, 'Work', 'shanejohnson@evans-meadows.info'),
 (70517, 35244, 'Home', 'brownwilliam@gmail.com'),
 (70516, 35243, 'Home', 'lnielsen@griffin.org'),
@@ -9999,13 +9991,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (69499, 34735, 'Work', 'xsanders@hotmail.com'),
 (69498, 34734, 'Other', 'davidscott@love.info'),
 (69497, 34734, 'Other', 'brandonkelly@glass-mason.com'),
-(69495, 34733, 'Other', 'mandy57@gordon.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(69495, 34733, 'Other', 'mandy57@gordon.com'),
 (69496, 34733, 'Home', 'dalton61@rodgers.net'),
 (69494, 34732, 'Home', 'erhodes@andrews.com'),
 (69493, 34732, 'Other', 'josephdiaz@hotmail.com'),
 (69492, 34731, 'Home', 'jenniferharvey@davis-little.biz'),
-(69491, 34731, 'Home', 'cbartlett@hotmail.com'),
+(69491, 34731, 'Home', 'cbartlett@hotmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (69490, 34730, 'Home', 'brian43@moore.net'),
 (69489, 34730, 'Other', 'alexjenkins@hawkins.com'),
 (69487, 34729, 'Work', 'tbishop@gmail.com'),
@@ -11035,13 +11027,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (68464, 34217, 'Work', 'juliemcdaniel@morales.org'),
 (68463, 34217, 'Home', 'denise21@yahoo.com'),
 (68462, 34216, 'Other', 'xpatel@hansen.info'),
-(68461, 34216, 'Work', 'bonillakathryn@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(68461, 34216, 'Work', 'bonillakathryn@hotmail.com'),
 (68460, 34215, 'Home', 'sandragonzalez@yahoo.com'),
 (68459, 34215, 'Home', 'ufisher@richardson-castillo.com'),
 (68457, 34214, 'Home', 'jeremy64@kim.com'),
 (68458, 34214, 'Work', 'cpotter@yahoo.com'),
-(68456, 34213, 'Work', 'ebaker@yahoo.com'),
+(68456, 34213, 'Work', 'ebaker@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (68455, 34213, 'Home', 'davidharris@hotmail.com'),
 (68454, 34212, 'Home', 'smills@yahoo.com'),
 (68452, 34211, 'Home', 'jensenmelissa@gmail.com'),
@@ -12073,12 +12065,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (67427, 33699, 'Home', 'paulfloyd@hotmail.com'),
 (67426, 33698, 'Other', 'robert52@gmail.com'),
 (67425, 33698, 'Home', 'tylermcdaniel@gmail.com'),
-(67424, 33697, 'Other', 'rodriguezrobert@yahoo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(67424, 33697, 'Other', 'rodriguezrobert@yahoo.com'),
 (67423, 33697, 'Work', 'stevensonkimberly@gmail.com'),
 (67422, 33696, 'Home', 'butlerclinton@hotmail.com'),
 (67421, 33696, 'Home', 'kristyjordan@yahoo.com'),
-(67420, 33695, 'Home', 'caldwelljohn@gmail.com'),
+(67420, 33695, 'Home', 'caldwelljohn@gmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (67417, 33694, 'Other', 'fmoore@yahoo.com'),
 (67418, 33694, 'Other', 'howarddanielle@gmail.com'),
 (67419, 33695, 'Other', 'montgomerydiane@smith-rios.com'),
@@ -13104,12 +13096,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (66398, 33184, 'Home', 'thomasjoseph@hotmail.com'),
 (66396, 33183, 'Work', 'knightmary@hotmail.com'),
 (66395, 33183, 'Other', 'jonesjenna@hotmail.com'),
-(66394, 33182, 'Other', 'ashley84@yahoo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(66394, 33182, 'Other', 'ashley84@yahoo.com'),
 (66393, 33182, 'Work', 'abooker@hotmail.com'),
 (66391, 33181, 'Home', 'bakerpenny@bell.com'),
 (66392, 33181, 'Home', 'matthewodom@wagner-shea.com'),
-(66390, 33180, 'Work', 'aliciadurham@hotmail.com'),
+(66390, 33180, 'Work', 'aliciadurham@hotmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (66389, 33180, 'Home', 'foneal@thompson.com'),
 (66387, 33179, 'Home', 'nmorris@lucas.com'),
 (66388, 33179, 'Other', 'michaelsimmons@yahoo.com'),
@@ -14140,12 +14132,12 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (65362, 32666, 'Work', 'gardnermichelle@reed.com'),
 (65361, 32666, 'Home', 'maria63@peterson-landry.com'),
 (65360, 32665, 'Home', 'ycisneros@hotmail.com'),
-(65359, 32665, 'Work', 'leslie04@gmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(65359, 32665, 'Work', 'leslie04@gmail.com'),
 (65358, 32664, 'Other', 'smithraymond@simmons.com'),
 (65357, 32664, 'Home', 'fschmidt@mccarty.com'),
 (65356, 32663, 'Home', 'richardduncan@patterson.com'),
-(65355, 32663, 'Home', 'halvarez@yahoo.com'),
+(65355, 32663, 'Home', 'halvarez@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (65354, 32662, 'Other', 'tyler60@adams.info'),
 (65353, 32662, 'Home', 'cwilliams@clark-green.info'),
 (65352, 32661, 'Home', 'wpacheco@yahoo.com'),
@@ -15179,13 +15171,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (64324, 32147, 'Home', 'hamiltonmichael@gmail.com'),
 (64323, 32147, 'Other', 'jasonmartin@baird.com'),
 (64322, 32146, 'Work', 'mcneilhannah@nelson.com'),
-(64321, 32146, 'Other', 'christopher26@mcmillan.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(64321, 32146, 'Other', 'christopher26@mcmillan.com'),
 (64320, 32145, 'Work', 'hadams@taylor.org'),
 (64319, 32145, 'Home', 'walter53@willis.net'),
 (64318, 32144, 'Other', 'bdiaz@gmail.com'),
 (64317, 32144, 'Work', 'olyons@hopkins.com'),
-(64316, 32143, 'Other', 'ltorres@johnson.com'),
+(64316, 32143, 'Other', 'ltorres@johnson.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (64315, 32143, 'Other', 'lovepaul@gonzales-allen.com'),
 (64314, 32142, 'Home', 'whitesandra@yahoo.com'),
 (64313, 32142, 'Home', 'sarahwilliams@navarro-rice.org'),
@@ -16215,13 +16207,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (63289, 31630, 'Work', 'davidjones@hotmail.com'),
 (63288, 31629, 'Work', 'donaldphillips@yahoo.com'),
 (63287, 31629, 'Home', 'lhowell@davis-baxter.com'),
-(63286, 31628, 'Home', 'christopher49@gmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(63286, 31628, 'Home', 'christopher49@gmail.com'),
 (63284, 31627, 'Home', 'daniel96@brady.com'),
 (63285, 31628, 'Work', 'timothyanderson@morris.com'),
 (63283, 31627, 'Work', 'herreralucas@hotmail.com'),
 (63282, 31626, 'Work', 'ycortez@hotmail.com'),
-(63281, 31626, 'Home', 'zachary47@yahoo.com'),
+(63281, 31626, 'Home', 'zachary47@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (63280, 31625, 'Home', 'alice79@yahoo.com'),
 (63278, 31624, 'Home', 'brucemanning@gmail.com'),
 (63279, 31625, 'Work', 'melissa54@yahoo.com'),
@@ -17251,13 +17243,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (62254, 31112, 'Work', 'shutchinson@brown.net'),
 (62253, 31112, 'Work', 'cheryl01@stone.com'),
 (62251, 31111, 'Home', 'uford@williams.info'),
-(62252, 31111, 'Home', 'blairjose@williams-wolf.info');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(62252, 31111, 'Home', 'blairjose@williams-wolf.info'),
 (62250, 31110, 'Work', 'wilsoncory@jones.com'),
 (62249, 31110, 'Home', 'amyjenkins@hotmail.com'),
 (62248, 31109, 'Work', 'vincentshort@yahoo.com'),
 (62247, 31109, 'Other', 'patrick89@parks.net'),
-(62246, 31108, 'Other', 'martingeorge@nelson.info'),
+(62246, 31108, 'Other', 'martingeorge@nelson.info');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (62245, 31108, 'Home', 'lcollier@hotmail.com'),
 (62244, 31107, 'Home', 'rstokes@gmail.com'),
 (62243, 31107, 'Home', 'rhines@landry-white.com'),
@@ -18289,13 +18281,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (61217, 30594, 'Home', 'nbryan@salas.biz'),
 (61216, 30593, 'Other', 'rebekah16@cohen-hill.com'),
 (61215, 30593, 'Other', 'davidjoel@miller.com'),
-(61214, 30592, 'Home', 'ginamahoney@tanner.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(61214, 30592, 'Home', 'ginamahoney@tanner.com'),
 (61213, 30592, 'Other', 'walterolivia@gmail.com'),
 (61212, 30591, 'Home', 'hannah11@yahoo.com'),
 (61211, 30591, 'Work', 'jesse94@scott.com'),
 (61210, 30590, 'Home', 'smithjason@yahoo.com'),
-(61209, 30590, 'Other', 'rbray@yahoo.com'),
+(61209, 30590, 'Other', 'rbray@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (61208, 30589, 'Other', 'jakemartinez@gmail.com'),
 (61207, 30589, 'Home', 'jcantrell@yahoo.com'),
 (61206, 30588, 'Home', 'ygreen@jordan.com'),
@@ -19322,13 +19314,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (60185, 30078, 'Work', 'iballard@murray-kelly.info'),
 (60184, 30077, 'Home', 'morrowbrandon@rodriguez.net'),
 (60183, 30077, 'Home', 'amason@randall.biz'),
-(60182, 30076, 'Other', 'jessicaphillips@yahoo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(60182, 30076, 'Other', 'jessicaphillips@yahoo.com'),
 (60181, 30076, 'Work', 'solomonaaron@lawrence-cole.com'),
 (60180, 30075, 'Home', 'rubioashley@hotmail.com'),
 (60179, 30075, 'Work', 'johnsontracey@avila-smith.net'),
 (60178, 30074, 'Home', 'marissa43@best.com'),
-(60177, 30074, 'Work', 'michael98@hotmail.com'),
+(60177, 30074, 'Work', 'michael98@hotmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (60176, 30073, 'Home', 'copelandveronica@yahoo.com'),
 (60175, 30073, 'Work', 'christopherbaker@higgins.org'),
 (60174, 30072, 'Home', 'williamrobbins@yahoo.com'),
@@ -19443,7 +19435,7 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (60066, 30018, 'Other', 'royangela@gmail.com'),
 (100911, 30014, 'Xcv', 'japawaxy@forexzig.com'),
 (100914, 30013, 'Zxc', 'dasd@sdfs.sa'),
-(60051, 12, 'Work', 'qowuzicy@fxzig.com'),
+(100921, 12, 'Work', 'qowuzicy@fxzig.com'),
 (78787, 39379, 'Other', 'vargasmarc@hotmail.com'),
 (78788, 39379, 'Work', 'jonathan49@tyler-mccormick.com'),
 (78789, 39380, 'Other', 'moorerobin@hotmail.com'),
@@ -20349,13 +20341,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (79689, 39830, 'Work', 'murphysharon@hotmail.com'),
 (79690, 39830, 'Work', 'krodriguez@yahoo.com'),
 (79691, 39831, 'Work', 'wsantos@hotmail.com'),
-(79692, 39831, 'Other', 'elizabethburke@martinez-porter.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(79692, 39831, 'Other', 'elizabethburke@martinez-porter.com'),
 (79693, 39832, 'Other', 'dennis93@schaefer-morales.com'),
 (79694, 39832, 'Home', 'richardroberts@robbins-smith.com'),
 (79695, 39833, 'Work', 'kellybilly@hotmail.com'),
 (79696, 39833, 'Other', 'sanchezdeanna@cooper.com'),
-(79697, 39834, 'Work', 'jensenevan@woods.com'),
+(79697, 39834, 'Work', 'jensenevan@woods.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (79698, 39834, 'Work', 'tatekelly@rhodes.com'),
 (79699, 39835, 'Home', 'nelsonhunter@richardson.com'),
 (79700, 39835, 'Work', 'richardpeterson@torres.com'),
@@ -21382,13 +21374,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (80753, 40346, 'Work', 'qkrueger@yahoo.com'),
 (80754, 40346, 'Work', 'matthewstanley@gmail.com'),
 (80755, 40347, 'Other', 'tanya78@yahoo.com'),
-(80756, 40347, 'Work', 'erika00@gmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(80756, 40347, 'Work', 'erika00@gmail.com'),
 (80757, 40348, 'Other', 'wellsamanda@hotmail.com'),
 (80758, 40348, 'Work', 'brianhansen@parrish.info'),
 (80759, 40349, 'Other', 'lsingleton@caldwell-rocha.com'),
 (80760, 40349, 'Other', 'martinjeffrey@gmail.com'),
-(80761, 40350, 'Work', 'kathleenmcgee@barnett-pierce.com'),
+(80761, 40350, 'Work', 'kathleenmcgee@barnett-pierce.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (80762, 40350, 'Other', 'westdylan@thompson.biz'),
 (80763, 40351, 'Work', 'chelseamunoz@robertson.com'),
 (80764, 40351, 'Work', 'edward06@gmail.com'),
@@ -22415,14 +22407,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (81785, 40862, 'Other', 'aaron10@gmail.com'),
 (81786, 40862, 'Home', 'theresamoore@gmail.com'),
 (81787, 40863, 'Home', 'igoodwin@yahoo.com'),
-(81788, 40863, 'Home', 'mary67@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(81788, 40863, 'Home', 'mary67@hotmail.com'),
 (81789, 40864, 'Other', 'jaimeclark@campos.net'),
 (81790, 40864, 'Other', 'robert40@gmail.com'),
 (81791, 40865, 'Work', 'teresa06@wright.com'),
 (81792, 40865, 'Other', 'ryan53@morales.com'),
 (81793, 40866, 'Work', 'garnerjeanne@scott-decker.org'),
-(81794, 40866, 'Work', 'djones@hall.org'),
+(81794, 40866, 'Work', 'djones@hall.org');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (81795, 40867, 'Home', 'tanderson@mckay.biz'),
 (81796, 40867, 'Work', 'fdickson@yahoo.com'),
 (81797, 40868, 'Home', 'ginagray@hotmail.com'),
@@ -23450,14 +23442,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (82819, 41379, 'Home', 'jessica62@yahoo.com'),
 (82820, 41379, 'Work', 'xhuff@gmail.com'),
 (82821, 41380, 'Work', 'robynmccullough@richmond.info'),
-(82822, 41380, 'Other', 'banksrachel@johnson.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(82822, 41380, 'Other', 'banksrachel@johnson.com'),
 (82823, 41381, 'Work', 'martinkaren@yahoo.com'),
 (82824, 41381, 'Home', 'ericapugh@compton.com'),
 (82825, 41382, 'Work', 'aedwards@yahoo.com'),
 (82826, 41382, 'Other', 'ujohnson@murphy.com'),
 (82827, 41383, 'Home', 'mitchellhess@gmail.com'),
-(82828, 41383, 'Other', 'qjackson@soto-cox.biz'),
+(82828, 41383, 'Other', 'qjackson@soto-cox.biz');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (82829, 41384, 'Home', 'sethlowe@hotmail.com'),
 (82830, 41384, 'Home', 'xlarsen@rosario.com'),
 (82831, 41385, 'Other', 'jason53@hotmail.com'),
@@ -24487,14 +24479,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (83855, 41897, 'Work', 'dcox@griffin.info'),
 (83856, 41897, 'Work', 'matthewnichols@reynolds.com'),
 (83857, 41898, 'Work', 'yadams@gmail.com'),
-(83858, 41898, 'Other', 'qmelton@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(83858, 41898, 'Other', 'qmelton@hotmail.com'),
 (83859, 41899, 'Home', 'jamesedwards@hotmail.com'),
 (83860, 41899, 'Home', 'vhall@quinn.com'),
 (83861, 41900, 'Work', 'kaylaray@gmail.com'),
 (83862, 41900, 'Other', 'bwalker@joyce.com'),
 (83863, 41901, 'Home', 'deanwilliam@stewart-owens.com'),
-(83864, 41901, 'Other', 'kevinshannon@gmail.com'),
+(83864, 41901, 'Other', 'kevinshannon@gmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (83865, 41902, 'Home', 'tcooper@roman.info'),
 (83866, 41902, 'Work', 'thomasjoseph@giles.com'),
 (83867, 41903, 'Home', 'lisa10@burns.com'),
@@ -25526,14 +25518,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (84893, 42416, 'Work', 'georgewalker@hotmail.com'),
 (84894, 42416, 'Work', 'michelle75@lopez.info'),
 (84895, 42417, 'Home', 'elizabethkrueger@yahoo.com'),
-(84896, 42417, 'Other', 'brandyhobbs@miller.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(84896, 42417, 'Other', 'brandyhobbs@miller.com'),
 (84897, 42418, 'Work', 'fnelson@yahoo.com'),
 (84898, 42418, 'Work', 'tfranklin@hotmail.com'),
 (84899, 42419, 'Home', 'courtneyvilla@gmail.com'),
 (84900, 42419, 'Work', 'pjacobs@lawson-cox.com'),
 (84901, 42420, 'Work', 'gabriellereed@hotmail.com'),
-(84902, 42420, 'Home', 'ericatorres@johnson.com'),
+(84902, 42420, 'Home', 'ericatorres@johnson.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (84903, 42421, 'Work', 'sanchezjesse@johnson.com'),
 (84904, 42421, 'Home', 'david51@yahoo.com'),
 (84905, 42422, 'Work', 'kristygutierrez@butler.com'),
@@ -26563,14 +26555,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (85929, 42934, 'Other', 'zamoradeborah@gmail.com'),
 (85930, 42934, 'Work', 'gtorres@gomez.info'),
 (85931, 42935, 'Work', 'brittany59@yahoo.com'),
-(85932, 42935, 'Home', 'erika32@floyd-thompson.info');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(85932, 42935, 'Home', 'erika32@floyd-thompson.info'),
 (85933, 42936, 'Other', 'swilliams@turner-freeman.com'),
 (85934, 42936, 'Home', 'angela01@yahoo.com'),
 (85935, 42937, 'Other', 'xhutchinson@yahoo.com'),
 (85936, 42937, 'Work', 'jshaw@gmail.com'),
 (85937, 42938, 'Work', 'jenniferbrown@yahoo.com'),
-(85938, 42938, 'Other', 'dale59@yahoo.com'),
+(85938, 42938, 'Other', 'dale59@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (85939, 42939, 'Work', 'andrew30@turner.info'),
 (85940, 42939, 'Other', 'harrisoncurtis@yahoo.com'),
 (85941, 42940, 'Work', 'rwilliams@hotmail.com'),
@@ -27597,14 +27589,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (86962, 43450, 'Home', 'ramirezsteven@gmail.com'),
 (86963, 43451, 'Other', 'johnsonjorge@smith.com'),
 (86964, 43451, 'Other', 'vyork@gmail.com'),
-(86965, 43452, 'Home', 'danielperkins@sullivan.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(86965, 43452, 'Home', 'danielperkins@sullivan.com'),
 (86966, 43452, 'Home', 'joshuahansen@castillo.info'),
 (86967, 43453, 'Other', 'krystallarson@ramirez.com'),
 (86968, 43453, 'Home', 'jmorgan@hotmail.com'),
 (86969, 43454, 'Work', 'pclark@gmail.com'),
 (86970, 43454, 'Other', 'donnalucero@hill.net'),
-(86971, 43455, 'Other', 'hmassey@murray.org'),
+(86971, 43455, 'Other', 'hmassey@murray.org');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (86972, 43455, 'Other', 'estesjeremy@gmail.com'),
 (86973, 43456, 'Work', 'byrddonna@hotmail.com'),
 (86974, 43456, 'Home', 'karenestes@hotmail.com'),
@@ -28636,14 +28628,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (88000, 43969, 'Work', 'cstrong@gmail.com'),
 (88001, 43970, 'Other', 'racheldavid@yahoo.com'),
 (88002, 43970, 'Other', 'juanjones@perez-ryan.net'),
-(88003, 43971, 'Other', 'wschultz@johnson-murphy.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(88003, 43971, 'Other', 'wschultz@johnson-murphy.com'),
 (88004, 43971, 'Home', 'brian40@johnson.info'),
 (88005, 43972, 'Home', 'rickymercado@yahoo.com'),
 (88006, 43972, 'Work', 'taylorjohnny@fields.com'),
 (88007, 43973, 'Other', 'joshuagriffith@gmail.com'),
 (88008, 43973, 'Work', 'rjohnson@gmail.com'),
-(88009, 43974, 'Home', 'jenniferramirez@griffin.com'),
+(88009, 43974, 'Home', 'jenniferramirez@griffin.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (88010, 43974, 'Home', 'tdaugherty@yahoo.com'),
 (88011, 43975, 'Work', 'charles00@hotmail.com'),
 (88012, 43975, 'Work', 'daniel48@barajas-williams.com'),
@@ -29669,14 +29661,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (89032, 44485, 'Work', 'ahouse@palmer-glass.info'),
 (89033, 44486, 'Work', 'jbarnes@yahoo.com'),
 (89034, 44486, 'Work', 'hernandezkelly@wright.com'),
-(89035, 44487, 'Other', 'lauren25@fields-benton.net');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(89035, 44487, 'Other', 'lauren25@fields-benton.net'),
 (89036, 44487, 'Home', 'kbennett@riley-cook.com'),
 (89037, 44488, 'Other', 'georgereeves@riley.com'),
 (89038, 44488, 'Work', 'jonesshelley@hotmail.com'),
 (89039, 44489, 'Work', 'jlynn@hotmail.com'),
 (89040, 44489, 'Work', 'vincent75@edwards.biz'),
-(89041, 44490, 'Home', 'jeremiahhill@yates.info'),
+(89041, 44490, 'Home', 'jeremiahhill@yates.info');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (89042, 44490, 'Work', 'castrojoseph@yahoo.com'),
 (89043, 44491, 'Other', 'desiree83@vega.org'),
 (89044, 44491, 'Home', 'davidbriggs@larsen.com'),
@@ -30702,14 +30694,14 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (90064, 45001, 'Work', 'qlewis@yahoo.com'),
 (90065, 45002, 'Work', 'peter29@hotmail.com'),
 (90066, 45002, 'Work', 'julian98@hotmail.com'),
-(90067, 45003, 'Other', 'lambjustin@schwartz.org');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(90067, 45003, 'Other', 'lambjustin@schwartz.org'),
 (90068, 45003, 'Home', 'kelly34@graham.com'),
 (90069, 45004, 'Home', 'gle@stephens.com'),
 (90070, 45004, 'Home', 'bergmichael@hotmail.com'),
 (90071, 45005, 'Work', 'anthony82@hotmail.com'),
 (90072, 45005, 'Work', 'rodrigueztanya@rivera.com'),
-(90073, 45006, 'Other', 'schultznicole@randall.com'),
+(90073, 45006, 'Other', 'schultznicole@randall.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (90074, 45006, 'Work', 'pscott@bowman.com'),
 (90075, 45007, 'Other', 'timothy91@kirby-johnson.biz'),
 (90076, 45007, 'Other', 'scoleman@yahoo.com'),
@@ -31735,13 +31727,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (91096, 45517, 'Other', 'jasonbenson@white.biz'),
 (91097, 45518, 'Home', 'shannonthornton@gmail.com'),
 (91098, 45518, 'Other', 'kyle11@lynn.com'),
-(91099, 45519, 'Work', 'tchavez@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(91099, 45519, 'Work', 'tchavez@hotmail.com'),
 (91100, 45519, 'Home', 'jward@hotmail.com'),
 (91101, 45520, 'Work', 'ashley00@hamilton-martinez.com'),
 (91102, 45520, 'Work', 'bethpatterson@gmail.com'),
 (91103, 45521, 'Other', 'walterday@baxter-cole.com'),
-(91104, 45521, 'Home', 'gabriela30@martinez.org'),
+(91104, 45521, 'Home', 'gabriela30@martinez.org');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (91105, 45522, 'Other', 'julie97@cruz-chang.com'),
 (91106, 45522, 'Home', 'john56@anderson-brooks.com'),
 (91107, 45523, 'Work', 'rogersjacqueline@curry.com'),
@@ -32768,13 +32760,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (92128, 46033, 'Work', 'christinalee@boyd-davis.net'),
 (92129, 46034, 'Home', 'zcampbell@anderson.com'),
 (92130, 46034, 'Home', 'kaustin@yahoo.com'),
-(92131, 46035, 'Home', 'shawn14@yahoo.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(92131, 46035, 'Home', 'shawn14@yahoo.com'),
 (92132, 46035, 'Home', 'garciajoshua@hotmail.com'),
 (92133, 46036, 'Home', 'lsmith@hotmail.com'),
 (92134, 46036, 'Other', 'greendaniel@yahoo.com'),
 (92135, 46037, 'Work', 'jessicascott@yahoo.com'),
-(92136, 46037, 'Other', 'mario93@williams.info'),
+(92136, 46037, 'Other', 'mario93@williams.info');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (92137, 46038, 'Other', 'powersmichael@hotmail.com'),
 (92138, 46038, 'Work', 'jmorgan@gmail.com'),
 (92139, 46039, 'Home', 'ghenderson@yahoo.com'),
@@ -33799,13 +33791,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (93158, 46548, 'Work', 'pwhite@sanford.com'),
 (93159, 46549, 'Home', 'kmccormick@gmail.com'),
 (93160, 46549, 'Other', 'brenda70@sims-nielsen.net'),
-(93161, 46550, 'Work', 'michael07@fox.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(93161, 46550, 'Work', 'michael07@fox.com'),
 (93162, 46550, 'Work', 'towens@garcia-benton.com'),
 (93163, 46551, 'Other', 'erin93@yahoo.com'),
 (93164, 46551, 'Other', 'vjones@gmail.com'),
 (93165, 46552, 'Home', 'farrelldustin@gmail.com'),
-(93166, 46552, 'Other', 'basskristie@garcia.net'),
+(93166, 46552, 'Other', 'basskristie@garcia.net');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (93167, 46553, 'Other', 'cpalmer@yahoo.com'),
 (93168, 46553, 'Home', 'brandynorman@watkins-williams.com'),
 (93169, 46554, 'Home', 'smcgee@owens-mitchell.biz'),
@@ -34834,13 +34826,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (94192, 47065, 'Other', 'mary37@yahoo.com'),
 (94193, 47066, 'Work', 'rosslinda@hotmail.com'),
 (94194, 47066, 'Other', 'tammy77@austin.com'),
-(94195, 47067, 'Home', 'rebeccacarter@baker.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(94195, 47067, 'Home', 'rebeccacarter@baker.com'),
 (94196, 47067, 'Work', 'kathydean@gmail.com'),
 (94197, 47068, 'Home', 'ortizlogan@watkins.net'),
 (94198, 47068, 'Other', 'estradaronald@gmail.com'),
 (94199, 47069, 'Home', 'christopher33@hodge.com'),
-(94200, 47069, 'Work', 'ncortez@yahoo.com'),
+(94200, 47069, 'Work', 'ncortez@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (94201, 47070, 'Other', 'kingkyle@mcbride-reynolds.com'),
 (94202, 47070, 'Work', 'millerrebecca@yahoo.com'),
 (94203, 47071, 'Home', 'melissa98@williams.net'),
@@ -35869,13 +35861,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (95226, 47582, 'Home', 'dawn12@foster.info'),
 (95227, 47583, 'Work', 'heather59@alvarez.com'),
 (95228, 47583, 'Home', 'jeremycrawford@hotmail.com'),
-(95229, 47584, 'Other', 'michael55@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(95229, 47584, 'Other', 'michael55@hotmail.com'),
 (95230, 47584, 'Home', 'gthompson@yahoo.com'),
 (95231, 47585, 'Work', 'roberthickman@gmail.com'),
 (95232, 47585, 'Work', 'chambersbrandon@yahoo.com'),
 (95233, 47586, 'Other', 'kevinbruce@gmail.com'),
-(95234, 47586, 'Work', 'jacob17@moss.com'),
+(95234, 47586, 'Work', 'jacob17@moss.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (95235, 47587, 'Home', 'jmoreno@hotmail.com'),
 (95236, 47587, 'Home', 'samantha72@odom.org'),
 (95237, 47588, 'Home', 'patriciamata@diaz.info'),
@@ -36904,13 +36896,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (96260, 48099, 'Home', 'robinsonjay@page-johnson.com'),
 (96261, 48100, 'Home', 'torrespaul@perry.com'),
 (96262, 48100, 'Work', 'kcooper@harris-jackson.info'),
-(96263, 48101, 'Work', 'curtis78@rodriguez.net');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(96263, 48101, 'Work', 'curtis78@rodriguez.net'),
 (96264, 48101, 'Work', 'thomasbonnie@martin.info'),
 (96265, 48102, 'Other', 'andrew59@yahoo.com'),
 (96266, 48102, 'Home', 'heatherperry@nguyen-meyer.com'),
 (96267, 48103, 'Home', 'kristahill@yahoo.com'),
-(96268, 48103, 'Other', 'garzasherry@yahoo.com'),
+(96268, 48103, 'Other', 'garzasherry@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (96269, 48104, 'Home', 'ikhan@perez.biz'),
 (96270, 48104, 'Work', 'nicholas30@yahoo.com'),
 (96271, 48105, 'Other', 'mary36@hotmail.com'),
@@ -37940,13 +37932,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (97295, 48617, 'Other', 'carlyvelazquez@torres-blake.org'),
 (97296, 48617, 'Other', 'caleb57@edwards-walsh.com'),
 (97297, 48618, 'Other', 'michaelhenderson@riggs.org'),
-(97298, 48618, 'Home', 'joe69@garcia.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(97298, 48618, 'Home', 'joe69@garcia.com'),
 (97299, 48619, 'Other', 'larsondarren@munoz.net'),
 (97300, 48619, 'Work', 'pferguson@yahoo.com'),
 (97301, 48620, 'Other', 'wyattaaron@hotmail.com'),
 (97302, 48620, 'Other', 'khanhector@conley.org'),
-(97303, 48621, 'Home', 'christopheradams@beasley.biz'),
+(97303, 48621, 'Home', 'christopheradams@beasley.biz');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (97304, 48621, 'Other', 'brian23@fox.com'),
 (97305, 48622, 'Other', 'francesjones@wilson-knight.com'),
 (97306, 48622, 'Work', 'rachelevans@yahoo.com'),
@@ -38978,13 +38970,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (98332, 49135, 'Other', 'timothy88@king-hess.com'),
 (98333, 49136, 'Home', 'veronicahahn@gmail.com'),
 (98334, 49136, 'Other', 'david63@gmail.com'),
-(98335, 49137, 'Work', 'uwilliams@hotmail.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(98335, 49137, 'Work', 'uwilliams@hotmail.com'),
 (98336, 49137, 'Home', 'longkathryn@giles.com'),
 (98337, 49138, 'Work', 'richard63@gmail.com'),
 (98338, 49138, 'Other', 'reyesjeffrey@hotmail.com'),
 (98339, 49139, 'Other', 'davidanderson@lee.com'),
-(98340, 49139, 'Other', 'fhicks@yahoo.com'),
+(98340, 49139, 'Other', 'fhicks@yahoo.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (98341, 49140, 'Other', 'andrea67@harris.com'),
 (98342, 49140, 'Home', 'yatkins@castaneda.com'),
 (98343, 49141, 'Other', 'markballard@gordon-brown.biz'),
@@ -40010,13 +40002,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (99363, 49651, 'Home', 'kaneheather@carpenter.com'),
 (99364, 49651, 'Work', 'jonathanmoore@yahoo.com'),
 (99365, 49652, 'Other', 'anthony68@hotmail.com'),
-(99366, 49652, 'Work', 'scottholland@fox.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(99366, 49652, 'Work', 'scottholland@fox.com'),
 (99367, 49653, 'Other', 'marissacurtis@yahoo.com'),
 (99368, 49653, 'Work', 'craigbrown@white-griffin.com'),
 (99369, 49654, 'Other', 'qharper@bryan-burch.net'),
 (99370, 49654, 'Other', 'calebevans@gmail.com'),
-(99371, 49655, 'Home', 'qblair@hotmail.com'),
+(99371, 49655, 'Home', 'qblair@hotmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (99372, 49655, 'Home', 'hernandezdouglas@smith-lewis.com'),
 (99373, 49656, 'Work', 'vasqueztom@yahoo.com'),
 (99374, 49656, 'Other', 'tfoster@lynch-long.com'),
@@ -41032,13 +41024,13 @@ INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (100386, 50162, 'Home', 'mariagreen@scott-king.com'),
 (100387, 50162, 'Home', 'hortonmegan@yahoo.com'),
 (100388, 50163, 'Other', 'ddominguez@barton.biz'),
-(100389, 50163, 'Work', 'mckinneycindy@washington.com');
-INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
+(100389, 50163, 'Work', 'mckinneycindy@washington.com'),
 (100390, 50164, 'Work', 'jacobsnancy@yahoo.com'),
 (100391, 50164, 'Other', 'stacy09@gmail.com'),
 (100392, 50165, 'Other', 'jeanettewilliams@hotmail.com'),
 (100393, 50165, 'Other', 'kathryn34@yahoo.com'),
-(100394, 50166, 'Home', 'xrhodes@hotmail.com'),
+(100394, 50166, 'Home', 'xrhodes@hotmail.com');
+INSERT INTO `contact_emails` (`id`, `contact_id`, `email_type`, `email`) VALUES
 (100395, 50166, 'Home', 'mitchelldanielle@yahoo.com'),
 (100396, 50167, 'Work', 'natashahunter@yahoo.com'),
 (100397, 50167, 'Work', 'hmontgomery@yahoo.com'),
@@ -41560,7 +41552,7 @@ CREATE TABLE IF NOT EXISTS `contact_phones` (
   `phone_type` varchar(25) DEFAULT NULL,
   `phone_number` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=100920 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `contact_phones`
@@ -41568,15 +41560,11 @@ CREATE TABLE IF NOT EXISTS `contact_phones` (
 
 INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (27, 10, 'Home', '1987654321'),
-(32, 6, 'Weqwe', '+912569559956'),
 (100913, 7, 'Home', '1987654321'),
 (100912, 7, 'Mobile', '1234567890'),
-(29, 9, 'Mobile', '920000000000'),
-(28, 9, 'Work', '911235000000'),
 (26, 10, 'Mobile', '1234567890'),
-(60041, 11, 'Home', '919877000000'),
-(60049, 12, 'Mobile', '920000000000'),
-(60048, 12, 'Work', '911235000000'),
+(100919, 12, 'Mobile', '920000000000'),
+(100918, 12, 'Work', '911235000000'),
 (78915, 39444, 'Work', '001-116-164-7228'),
 (78914, 39444, 'Mobile', '7391576683'),
 (78913, 39443, 'Mobile', '(862)529-1106'),
@@ -42834,11 +42822,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (77661, 38817, 'Home', '(629)977-9850'),
 (77660, 38817, 'Home', '775-691-3663'),
 (77659, 38816, 'Home', '001-997-716-4307'),
-(77658, 38816, 'Work', '(489)515-8017');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(77658, 38816, 'Work', '(489)515-8017'),
 (77657, 38815, 'Home', '+1-156-326-9848'),
 (77656, 38815, 'Home', '306-605-6247'),
-(77655, 38814, 'Mobile', '(519)008-1169'),
+(77655, 38814, 'Mobile', '(519)008-1169');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (77654, 38814, 'Home', '001-924-064-8274'),
 (77653, 38813, 'Mobile', '+1-323-909-2589'),
 (77652, 38813, 'Work', '+1-711-895-5979'),
@@ -44102,11 +44090,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (76394, 38184, 'Work', '5977232715'),
 (76393, 38183, 'Mobile', '9298997985'),
 (76392, 38183, 'Home', '+1-056-650-7329'),
-(76391, 38182, 'Home', '+1-464-318-6836');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(76391, 38182, 'Home', '+1-464-318-6836'),
 (76390, 38182, 'Home', '236-783-2168'),
 (76389, 38181, 'Home', '983-709-2070'),
-(76388, 38181, 'Home', '958-779-3795'),
+(76388, 38181, 'Home', '958-779-3795');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (76387, 38180, 'Work', '5680087677'),
 (76385, 38179, 'Work', '(027)955-3194'),
 (76386, 38180, 'Home', '7975953908'),
@@ -45369,11 +45357,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (75128, 37551, 'Home', '802-573-3676'),
 (75127, 37550, 'Work', '9397655237'),
 (75126, 37550, 'Mobile', '616-465-1592'),
-(75125, 37549, 'Mobile', '001-745-757-4630');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(75125, 37549, 'Mobile', '001-745-757-4630'),
 (75124, 37549, 'Work', '001-248-697-3356'),
 (75123, 37548, 'Home', '001-346-842-3672'),
-(75122, 37548, 'Home', '553-211-7569'),
+(75122, 37548, 'Home', '553-211-7569');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (75121, 37547, 'Mobile', '0868236601'),
 (75120, 37547, 'Mobile', '058-498-4292'),
 (75119, 37546, 'Mobile', '1884155280'),
@@ -46636,11 +46624,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (73862, 36918, 'Home', '7523213299'),
 (73861, 36917, 'Work', '+1-531-221-3435'),
 (73860, 36917, 'Work', '001-077-339-4574'),
-(73859, 36916, 'Work', '109-150-5378');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(73859, 36916, 'Work', '109-150-5378'),
 (73858, 36916, 'Work', '4272032714'),
 (73857, 36915, 'Work', '5421798584'),
-(73856, 36915, 'Work', '+1-761-053-0679'),
+(73856, 36915, 'Work', '+1-761-053-0679');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (73855, 36914, 'Home', '201-514-3881'),
 (73854, 36914, 'Home', '+1-587-727-0044'),
 (73853, 36913, 'Mobile', '5613772599'),
@@ -47905,11 +47893,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (72594, 36284, 'Home', '+1-256-616-9476'),
 (72593, 36283, 'Work', '(625)663-0647'),
 (72592, 36283, 'Home', '(218)515-1770'),
-(72591, 36282, 'Home', '8345716109');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(72591, 36282, 'Home', '8345716109'),
 (72590, 36282, 'Home', '(150)432-4804'),
 (72589, 36281, 'Work', '7611268286'),
-(72588, 36281, 'Work', '(075)894-1162'),
+(72588, 36281, 'Work', '(075)894-1162');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (72587, 36280, 'Work', '001-049-743-2225'),
 (72586, 36280, 'Home', '(134)319-2627'),
 (72585, 36279, 'Work', '001-502-880-0856'),
@@ -49171,11 +49159,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (71329, 35651, 'Mobile', '2667958338'),
 (71328, 35651, 'Mobile', '2348724770'),
 (71327, 35650, 'Home', '(901)226-9497'),
-(71326, 35650, 'Mobile', '+1-008-744-6270');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(71326, 35650, 'Mobile', '+1-008-744-6270'),
 (71325, 35649, 'Work', '4822705608'),
 (71324, 35649, 'Mobile', '3684488977'),
-(71323, 35648, 'Home', '781-367-5030'),
+(71323, 35648, 'Home', '781-367-5030');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (71322, 35648, 'Mobile', '546-563-9624'),
 (71321, 35647, 'Mobile', '+1-907-982-8342'),
 (71320, 35647, 'Work', '845-531-7459'),
@@ -50438,11 +50426,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (70063, 35018, 'Work', '(648)958-1056'),
 (70062, 35018, 'Work', '(956)967-5022'),
 (70061, 35017, 'Work', '(530)996-1422'),
-(70060, 35017, 'Work', '294-825-1946');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(70060, 35017, 'Work', '294-825-1946'),
 (70059, 35016, 'Mobile', '(815)015-2702'),
 (70057, 35015, 'Work', '922-920-1117'),
-(70058, 35016, 'Home', '9077151587'),
+(70058, 35016, 'Home', '9077151587');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (70056, 35015, 'Mobile', '+1-329-171-9601'),
 (70055, 35014, 'Mobile', '449-502-8881'),
 (70054, 35014, 'Work', '+1-564-600-9740'),
@@ -51706,12 +51694,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (68796, 34385, 'Home', '012-304-6779'),
 (68795, 34384, 'Mobile', '(653)500-0329'),
 (68794, 34384, 'Mobile', '8712593570'),
-(68793, 34383, 'Home', '(579)345-8103');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(68793, 34383, 'Home', '(579)345-8103'),
 (68792, 34383, 'Home', '(330)964-1690'),
 (68791, 34382, 'Home', '0741342194'),
 (68790, 34382, 'Mobile', '222-931-1816'),
-(68789, 34381, 'Work', '5259187334'),
+(68789, 34381, 'Work', '5259187334');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (68788, 34381, 'Mobile', '140-282-2379'),
 (68787, 34380, 'Mobile', '001-783-346-7227'),
 (68786, 34380, 'Mobile', '(536)845-5760'),
@@ -52974,11 +52962,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (67529, 33751, 'Work', '001-975-888-3508'),
 (67528, 33751, 'Mobile', '051-359-2466'),
 (67527, 33750, 'Work', '(506)872-1251'),
-(67526, 33750, 'Mobile', '(121)102-0364');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(67526, 33750, 'Mobile', '(121)102-0364'),
 (67525, 33749, 'Mobile', '745-718-7862'),
 (67524, 33749, 'Mobile', '(816)953-4977'),
-(67523, 33748, 'Mobile', '(992)147-4714'),
+(67523, 33748, 'Mobile', '(992)147-4714');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (67522, 33748, 'Work', '001-469-137-1448'),
 (67521, 33747, 'Work', '860-887-8336'),
 (67519, 33746, 'Mobile', '(584)956-2497'),
@@ -54242,12 +54230,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (66262, 33118, 'Work', '3408139702'),
 (66261, 33117, 'Work', '8379104479'),
 (66260, 33117, 'Home', '(233)750-4449'),
-(66259, 33116, 'Work', '+1-485-141-6886');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(66259, 33116, 'Work', '+1-485-141-6886'),
 (66258, 33116, 'Home', '001-997-092-6894'),
 (66257, 33115, 'Home', '1562600746'),
 (66256, 33115, 'Mobile', '(544)971-8405'),
-(66255, 33114, 'Work', '8832041840'),
+(66255, 33114, 'Work', '8832041840');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (66254, 33114, 'Mobile', '001-012-085-4115'),
 (66253, 33113, 'Work', '(631)787-2930'),
 (66252, 33113, 'Work', '9442096139'),
@@ -55514,12 +55502,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (64991, 32482, 'Home', '+1-906-073-9839'),
 (64990, 32482, 'Mobile', '0983030390'),
 (64989, 32481, 'Mobile', '+1-916-132-8765'),
-(64988, 32481, 'Mobile', '178-624-9555');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(64988, 32481, 'Mobile', '178-624-9555'),
 (64987, 32480, 'Mobile', '794-295-0853'),
 (64986, 32480, 'Home', '595-182-5063'),
 (64985, 32479, 'Home', '2274709934'),
-(64984, 32479, 'Work', '+1-111-162-3175'),
+(64984, 32479, 'Work', '+1-111-162-3175');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (64983, 32478, 'Home', '1179450014'),
 (64982, 32478, 'Home', '001-813-290-9866'),
 (64981, 32477, 'Mobile', '525-204-0801'),
@@ -56781,12 +56769,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (63725, 31849, 'Mobile', '(308)474-5512'),
 (63723, 31848, 'Home', '4265466836'),
 (63724, 31849, 'Mobile', '4646528438'),
-(63722, 31848, 'Home', '001-188-781-2044');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(63722, 31848, 'Home', '001-188-781-2044'),
 (63721, 31847, 'Mobile', '3570983096'),
 (63720, 31847, 'Home', '5796463079'),
 (63719, 31846, 'Work', '402-903-9132'),
-(63718, 31846, 'Home', '7904597449'),
+(63718, 31846, 'Home', '7904597449');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (63717, 31845, 'Mobile', '240-880-0740'),
 (63716, 31845, 'Home', '4959659254'),
 (63715, 31844, 'Work', '0076370611'),
@@ -58048,12 +58036,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (62459, 31216, 'Work', '499-602-9868'),
 (62458, 31216, 'Mobile', '001-949-086-9038'),
 (62457, 31215, 'Mobile', '2068125251'),
-(62456, 31215, 'Home', '(881)656-1303');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(62456, 31215, 'Home', '(881)656-1303'),
 (62455, 31214, 'Home', '4533678644'),
 (62454, 31214, 'Work', '+1-137-131-9755'),
 (62453, 31213, 'Home', '2657230143'),
-(62452, 31213, 'Mobile', '312-924-3877'),
+(62452, 31213, 'Mobile', '312-924-3877');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (62451, 31212, 'Home', '+1-848-923-4414'),
 (62450, 31212, 'Home', '(175)827-7576'),
 (62449, 31211, 'Work', '9875748428'),
@@ -59313,12 +59301,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (61195, 30584, 'Home', '(756)174-1300'),
 (61194, 30584, 'Mobile', '(271)541-2974'),
 (61193, 30583, 'Home', '9742857690'),
-(61192, 30583, 'Mobile', '001-564-030-1444');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(61192, 30583, 'Mobile', '001-564-030-1444'),
 (61191, 30582, 'Work', '+1-130-439-1045'),
 (61190, 30582, 'Mobile', '8125471831'),
 (61189, 30581, 'Mobile', '7926189415'),
-(61188, 30581, 'Home', '+1-278-425-0625'),
+(61188, 30581, 'Home', '+1-278-425-0625');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (61187, 30580, 'Home', '001-191-549-9331'),
 (61186, 30580, 'Home', '1876627725'),
 (61185, 30579, 'Mobile', '+1-042-013-1407'),
@@ -60581,12 +60569,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (79047, 39510, 'Home', '2254442959'),
 (79048, 39511, 'Home', '068-424-6473'),
 (79049, 39511, 'Work', '(039)558-8963'),
-(79050, 39512, 'Work', '+1-891-638-6476');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(79050, 39512, 'Work', '+1-891-638-6476'),
 (79051, 39512, 'Mobile', '+1-302-410-6852'),
 (79052, 39513, 'Home', '8564181681'),
 (79053, 39513, 'Home', '(778)311-8237'),
-(79054, 39514, 'Mobile', '001-484-518-1138'),
+(79054, 39514, 'Mobile', '001-484-518-1138');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (79055, 39514, 'Mobile', '001-881-486-5940'),
 (79056, 39515, 'Mobile', '138-242-0435'),
 (79057, 39515, 'Home', '(002)432-4483'),
@@ -61847,13 +61835,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (80344, 40143, 'Home', '654-820-2658'),
 (80345, 40143, 'Mobile', '462-537-8074'),
 (80346, 40144, 'Work', '(872)622-8934'),
-(80347, 40144, 'Home', '001-581-089-7608');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(80347, 40144, 'Home', '001-581-089-7608'),
 (80348, 40145, 'Home', '+1-444-699-3725'),
 (80349, 40145, 'Mobile', '(534)664-6437'),
 (80350, 40146, 'Work', '(641)287-4192'),
 (80351, 40146, 'Work', '3387943210'),
-(80352, 40147, 'Home', '001-219-233-3794'),
+(80352, 40147, 'Home', '001-219-233-3794');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (80353, 40147, 'Mobile', '(927)658-6332'),
 (80354, 40148, 'Home', '977-589-7420'),
 (80355, 40148, 'Home', '0181504967'),
@@ -63114,13 +63102,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (81610, 40776, 'Work', '001-475-828-7481'),
 (81611, 40776, 'Work', '(836)215-7492'),
 (81612, 40777, 'Home', '6281142315'),
-(81613, 40777, 'Mobile', '206-962-2472');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(81613, 40777, 'Mobile', '206-962-2472'),
 (81614, 40778, 'Mobile', '7771654485'),
 (81615, 40778, 'Work', '890-038-5720'),
 (81616, 40779, 'Work', '+1-573-392-1394'),
 (81617, 40779, 'Mobile', '001-377-917-2746'),
-(81618, 40780, 'Work', '0566902629'),
+(81618, 40780, 'Work', '0566902629');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (81619, 40780, 'Home', '7885061203'),
 (81620, 40781, 'Home', '(548)586-3855'),
 (81621, 40781, 'Home', '8237078872'),
@@ -64379,13 +64367,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (82874, 41408, 'Work', '+1-298-542-8562'),
 (82875, 41408, 'Home', '1435978918'),
 (82876, 41409, 'Mobile', '001-205-932-1425'),
-(82877, 41409, 'Home', '+1-089-402-3232');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(82877, 41409, 'Home', '+1-089-402-3232'),
 (82878, 41410, 'Mobile', '(932)859-5977'),
 (82879, 41410, 'Home', '721-090-1570'),
 (82880, 41411, 'Mobile', '001-078-200-7462'),
 (82881, 41411, 'Work', '8689671300'),
-(82882, 41412, 'Work', '001-802-392-3914'),
+(82882, 41412, 'Work', '001-802-392-3914');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (82883, 41412, 'Work', '4160572494'),
 (82884, 41413, 'Work', '+1-442-543-0139'),
 (82885, 41413, 'Home', '597-853-7005'),
@@ -65648,13 +65636,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (84142, 42042, 'Mobile', '3750049885'),
 (84143, 42042, 'Home', '001-394-248-5029'),
 (84144, 42043, 'Home', '892-578-8001'),
-(84145, 42043, 'Home', '7613293463');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(84145, 42043, 'Home', '7613293463'),
 (84146, 42044, 'Mobile', '+1-561-387-7912'),
 (84147, 42044, 'Mobile', '0799251419'),
 (84148, 42045, 'Home', '751-402-5246'),
 (84149, 42045, 'Home', '+1-921-289-7703'),
-(84150, 42046, 'Mobile', '7925547382'),
+(84150, 42046, 'Mobile', '7925547382');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (84151, 42046, 'Work', '(852)904-9964'),
 (84152, 42047, 'Home', '001-543-859-6720'),
 (84153, 42047, 'Mobile', '001-292-031-9395'),
@@ -66916,13 +66904,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (85409, 42675, 'Work', '0374346147'),
 (85410, 42676, 'Work', '001-289-527-7862'),
 (85411, 42676, 'Home', '(596)080-9516'),
-(85412, 42677, 'Mobile', '+1-745-949-2244');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(85412, 42677, 'Mobile', '+1-745-949-2244'),
 (85413, 42677, 'Work', '+1-044-148-5503'),
 (85414, 42678, 'Home', '+1-981-538-7778'),
 (85415, 42678, 'Work', '8186379753'),
 (85416, 42679, 'Work', '2162405301'),
-(85417, 42679, 'Home', '+1-829-660-3610'),
+(85417, 42679, 'Home', '+1-829-660-3610');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (85418, 42680, 'Mobile', '8039009276'),
 (85419, 42680, 'Mobile', '001-319-067-1388'),
 (85420, 42681, 'Mobile', '(879)846-7347'),
@@ -68186,13 +68174,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (86678, 43310, 'Work', '(124)958-6132'),
 (86679, 43310, 'Mobile', '(479)142-8356'),
 (86680, 43311, 'Mobile', '5432718048'),
-(86681, 43311, 'Work', '4778457658');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(86681, 43311, 'Work', '4778457658'),
 (86682, 43312, 'Home', '001-224-408-0073'),
 (86683, 43312, 'Home', '(010)418-4444'),
 (86684, 43313, 'Work', '2817825861'),
 (86685, 43313, 'Work', '001-834-657-4642'),
-(86686, 43314, 'Home', '+1-538-726-9039'),
+(86686, 43314, 'Home', '+1-538-726-9039');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (86687, 43314, 'Work', '190-674-7528'),
 (86688, 43315, 'Mobile', '+1-655-206-2009'),
 (86689, 43315, 'Mobile', '535-352-8696'),
@@ -69455,13 +69443,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (87946, 43944, 'Work', '(880)571-0042'),
 (87947, 43944, 'Mobile', '7458789510'),
 (87948, 43945, 'Mobile', '001-563-424-4284'),
-(87949, 43945, 'Home', '5835442487');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(87949, 43945, 'Home', '5835442487'),
 (87950, 43946, 'Home', '+1-426-683-1228'),
 (87951, 43946, 'Work', '062-857-9192'),
 (87952, 43947, 'Work', '001-487-370-0628'),
 (87953, 43947, 'Home', '345-499-6876'),
-(87954, 43948, 'Work', '333-029-0867'),
+(87954, 43948, 'Work', '333-029-0867');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (87955, 43948, 'Home', '001-719-019-3548'),
 (87956, 43949, 'Work', '0529109957'),
 (87957, 43949, 'Work', '(352)554-6072'),
@@ -70723,13 +70711,13 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (89213, 44577, 'Mobile', '8552003267'),
 (89214, 44578, 'Mobile', '3782457858'),
 (89215, 44578, 'Home', '123-816-0625'),
-(89216, 44579, 'Home', '7340009109');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(89216, 44579, 'Home', '7340009109'),
 (89217, 44579, 'Work', '5140341152'),
 (89218, 44580, 'Mobile', '9374507284'),
 (89219, 44580, 'Mobile', '4749155395'),
 (89220, 44581, 'Work', '+1-180-671-0437'),
-(89221, 44581, 'Mobile', '001-469-167-0493'),
+(89221, 44581, 'Mobile', '001-469-167-0493');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (89222, 44582, 'Work', '001-220-834-1259'),
 (89223, 44582, 'Home', '179-397-1604'),
 (89224, 44583, 'Home', '(559)856-9638'),
@@ -71989,12 +71977,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (90478, 45210, 'Home', '6005155598'),
 (90479, 45210, 'Work', '(970)886-8513'),
 (90480, 45211, 'Work', '9122325311'),
-(90481, 45211, 'Work', '+1-283-496-8420');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(90481, 45211, 'Work', '+1-283-496-8420'),
 (90482, 45212, 'Work', '348-526-6841'),
 (90483, 45212, 'Mobile', '+1-664-004-6701'),
 (90484, 45213, 'Home', '001-748-600-3203'),
-(90485, 45213, 'Home', '055-262-7015'),
+(90485, 45213, 'Home', '055-262-7015');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (90486, 45214, 'Mobile', '923-110-5983'),
 (90487, 45214, 'Work', '+1-383-566-7477'),
 (90488, 45215, 'Home', '383-278-0386'),
@@ -73255,12 +73243,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (91743, 45842, 'Work', '001-399-890-8303'),
 (91744, 45843, 'Mobile', '(029)284-5820'),
 (91745, 45843, 'Home', '8619111214'),
-(91746, 45844, 'Work', '732-192-1413');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(91746, 45844, 'Work', '732-192-1413'),
 (91747, 45844, 'Mobile', '5211917104'),
 (91748, 45845, 'Mobile', '001-285-235-2248'),
 (91749, 45845, 'Work', '+1-142-768-5385'),
-(91750, 45846, 'Home', '998-113-7468'),
+(91750, 45846, 'Home', '998-113-7468');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (91751, 45846, 'Work', '+1-920-425-5976'),
 (91752, 45847, 'Mobile', '145-372-7605'),
 (91753, 45847, 'Home', '501-953-8962'),
@@ -74524,12 +74512,12 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (93011, 46476, 'Mobile', '+1-279-820-1445'),
 (93012, 46477, 'Work', '001-822-808-7029'),
 (93013, 46477, 'Mobile', '+1-219-742-8178'),
-(93014, 46478, 'Mobile', '(212)903-7155');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(93014, 46478, 'Mobile', '(212)903-7155'),
 (93015, 46478, 'Home', '0559211145'),
 (93016, 46479, 'Work', '7535296896'),
 (93017, 46479, 'Mobile', '8070091748'),
-(93018, 46480, 'Work', '(734)320-9741'),
+(93018, 46480, 'Work', '(734)320-9741');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (93019, 46480, 'Work', '(127)512-6515'),
 (93020, 46481, 'Home', '882-945-7320'),
 (93021, 46481, 'Home', '898-096-9046'),
@@ -75793,11 +75781,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (94279, 47110, 'Home', '(065)436-8162'),
 (94280, 47111, 'Work', '001-201-359-3654'),
 (94281, 47111, 'Work', '317-253-6226'),
-(94282, 47112, 'Mobile', '(706)301-8142');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(94282, 47112, 'Mobile', '(706)301-8142'),
 (94283, 47112, 'Work', '001-870-888-7971'),
 (94284, 47113, 'Mobile', '001-926-797-4306'),
-(94285, 47113, 'Mobile', '583-509-6609'),
+(94285, 47113, 'Mobile', '583-509-6609');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (94286, 47114, 'Home', '6355574291'),
 (94287, 47114, 'Mobile', '6019404116'),
 (94288, 47115, 'Home', '6289482366'),
@@ -77059,11 +77047,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (95544, 47743, 'Work', '+1-406-777-4124'),
 (95545, 47743, 'Work', '001-735-364-8468'),
 (95546, 47744, 'Mobile', '0821851548'),
-(95547, 47744, 'Work', '(549)964-6206');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(95547, 47744, 'Work', '(549)964-6206'),
 (95548, 47745, 'Mobile', '(444)700-0432'),
 (95549, 47745, 'Work', '(357)413-8786'),
-(95550, 47746, 'Home', '6209104270'),
+(95550, 47746, 'Home', '6209104270');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (95551, 47746, 'Work', '(720)409-3991'),
 (95552, 47747, 'Mobile', '(130)507-0297'),
 (95553, 47747, 'Mobile', '432-481-5339'),
@@ -78327,11 +78315,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (96811, 48376, 'Home', '+1-327-181-1099'),
 (96812, 48377, 'Mobile', '(743)628-6943'),
 (96813, 48377, 'Home', '001-434-538-1977'),
-(96814, 48378, 'Mobile', '(593)502-7806');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(96814, 48378, 'Mobile', '(593)502-7806'),
 (96815, 48378, 'Work', '001-286-027-8961'),
 (96816, 48379, 'Work', '8008118677'),
-(96817, 48379, 'Home', '(636)563-2704'),
+(96817, 48379, 'Home', '(636)563-2704');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (96818, 48380, 'Home', '(597)034-0980'),
 (96819, 48380, 'Work', '6182019984'),
 (96820, 48381, 'Mobile', '(676)525-1837'),
@@ -79596,11 +79584,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (98079, 49010, 'Work', '400-528-4605'),
 (98080, 49011, 'Work', '2462693852'),
 (98081, 49011, 'Home', '788-706-5518'),
-(98082, 49012, 'Mobile', '+1-827-320-5386');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(98082, 49012, 'Mobile', '+1-827-320-5386'),
 (98083, 49012, 'Home', '2900710299'),
 (98084, 49013, 'Work', '0982462578'),
-(98085, 49013, 'Home', '+1-275-077-5634'),
+(98085, 49013, 'Home', '+1-275-077-5634');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (98086, 49014, 'Home', '4776635922'),
 (98087, 49014, 'Home', '+1-216-951-3969'),
 (98088, 49015, 'Home', '038-365-5294'),
@@ -80865,11 +80853,11 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (99347, 49644, 'Mobile', '6883733141'),
 (99348, 49645, 'Work', '001-819-714-0137'),
 (99349, 49645, 'Work', '001-807-535-1120'),
-(99350, 49646, 'Home', '677-775-3225');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(99350, 49646, 'Home', '677-775-3225'),
 (99351, 49646, 'Home', '3678403827'),
 (99352, 49647, 'Mobile', '001-013-313-4838'),
-(99353, 49647, 'Home', '1664383655'),
+(99353, 49647, 'Home', '1664383655');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (99354, 49648, 'Mobile', '6602036010'),
 (99355, 49648, 'Home', '(257)757-4398'),
 (99356, 49649, 'Mobile', '392-716-4234'),
@@ -82122,10 +82110,10 @@ INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) 
 (100605, 50273, 'Mobile', '001-484-172-7300'),
 (100606, 50273, 'Mobile', '0543667403'),
 (100607, 50274, 'Mobile', '9099309262'),
-(100608, 50274, 'Mobile', '9880686517');
-INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
+(100608, 50274, 'Mobile', '9880686517'),
 (100609, 50275, 'Mobile', '563538220'),
-(100610, 50275, 'Work', '001-349-123-5308'),
+(100610, 50275, 'Work', '001-349-123-5308');
+INSERT INTO `contact_phones` (`id`, `contact_id`, `phone_type`, `phone_number`) VALUES
 (100611, 50276, 'Work', '+1-556-291-8193'),
 (100612, 50276, 'Work', '001-778-880-1403'),
 (100613, 50277, 'Home', '(421)272-6345'),
@@ -82428,7 +82416,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(150) NOT NULL,
   `phonecode` int NOT NULL,
   PRIMARY KEY (`country_id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=241 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `country`
@@ -82692,7 +82680,7 @@ CREATE TABLE IF NOT EXISTS `cron_emails` (
   `smtp_config_id` int DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `cron_emails`
@@ -82701,7 +82689,43 @@ CREATE TABLE IF NOT EXISTS `cron_emails` (
 INSERT INTO `cron_emails` (`id`, `user_id`, `contact_id`, `email_content_id`, `is_sent`, `smtp_config_id`, `updated_at`) VALUES
 (6, 8, 50409, 14, 1, 9, '2025-07-05 12:07:49'),
 (5, 8, 50133, 14, 1, 10, '2025-07-05 11:57:29'),
-(4, 8, 50057, 14, 1, 9, '2025-07-05 11:57:18');
+(4, 8, 50057, 14, 1, 9, '2025-07-05 11:57:18'),
+(12, 8, 50303, 18, 0, NULL, '2025-07-07 06:28:22'),
+(13, 8, 12, 18, 0, NULL, '2025-07-07 06:28:22'),
+(16, 1, 7, 21, 0, NULL, '2025-07-10 05:16:35'),
+(17, 1, 7, 23, 1, 10, '2025-07-10 07:53:57'),
+(18, 1, 7, 25, 1, 10, '2025-07-12 06:07:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cron_manual_emails`
+--
+
+DROP TABLE IF EXISTS `cron_manual_emails`;
+CREATE TABLE IF NOT EXISTS `cron_manual_emails` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `email_content_id` int DEFAULT NULL,
+  `is_sent` tinyint DEFAULT '0',
+  `smtp_config_id` int DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `cron_manual_emails`
+--
+
+INSERT INTO `cron_manual_emails` (`id`, `user_id`, `email`, `email_content_id`, `is_sent`, `smtp_config_id`, `updated_at`) VALUES
+(1, 1, 'vesatofo@forexzig.com', 22, 1, 10, '2025-07-10 07:54:01'),
+(2, 1, 'asd@gmail.com', 22, 1, 10, '2025-07-10 07:54:06'),
+(3, 1, 'vimuhoxe@cyclelove.cc', 23, 1, 10, '2025-07-10 07:54:10'),
+(4, 1, 'test@gmail.com', 23, 1, 10, '2025-07-10 07:54:15'),
+(5, 1, 'yy@yahoo.com', 23, 1, 10, '2025-07-10 07:54:20'),
+(6, 1, 'smt9296@gmail.com', 24, 1, 10, '2025-07-12 06:03:29'),
+(7, 1, 'vesatofo@forexzig.com', 25, 1, 10, '2025-07-12 06:07:55');
 
 -- --------------------------------------------------------
 
@@ -82723,13 +82747,14 @@ CREATE TABLE IF NOT EXISTS `email_logs` (
   `error_info` text,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `email_logs`
 --
 
 INSERT INTO `email_logs` (`id`, `user_id`, `contact_id`, `email`, `smtp_config_id`, `type`, `email_content_id`, `birthday_template_id`, `status`, `error_info`, `created_at`) VALUES
+(62, 8, 50303, 'adamsjordan@taylor-gibson.biz', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:29:56'),
 (59, 8, 50133, 'nydese@fxzig.com', 10, 'campaign', 14, NULL, 'success', '', '2025-07-05 11:57:29'),
 (60, 8, 50409, 'arthurgallagher@gmail.com', 9, 'campaign', 14, NULL, 'success', '', '2025-07-05 12:07:35'),
 (61, 8, 50409, 'vesatofo@forexzig.com', 9, 'campaign', 14, NULL, 'success', '', '2025-07-05 12:07:49'),
@@ -82739,7 +82764,33 @@ INSERT INTO `email_logs` (`id`, `user_id`, `contact_id`, `email`, `smtp_config_i
 (55, 8, 50057, 'burike@fxzig.com', 9, 'campaign', 14, NULL, 'success', '', '2025-07-05 11:57:18'),
 (54, 8, 50419, 'bsmistry99@gmail.com', 9, 'birthday', NULL, 1, 'success', '', '2025-07-05 11:57:13'),
 (52, 8, 30014, 'japawaxy@forexzig.com', 9, 'birthday', NULL, 5, 'success', '', '2025-07-05 11:57:08'),
-(53, 8, 50057, 'patriciasmith@gmail.com', 9, 'campaign', 14, NULL, 'success', '', '2025-07-05 11:57:12');
+(53, 8, 50057, 'patriciasmith@gmail.com', 9, 'campaign', 14, NULL, 'success', '', '2025-07-05 11:57:12'),
+(63, 8, 50303, 'anthonymorgan@gmail.com', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:30:23'),
+(64, 8, 12, 'jeyacob585@coasah.com', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:30:48'),
+(65, 8, 12, 'qowuzicy@fxzig.com', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:31:13'),
+(66, 8, 50303, 'adamsjordan@taylor-gibson.biz', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:31:38'),
+(67, 8, 50303, 'anthonymorgan@gmail.com', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:32:03'),
+(68, 8, 12, 'jeyacob585@coasah.com', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:32:28'),
+(69, 8, 12, 'qowuzicy@fxzig.com', 9, 'campaign', 18, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-07 06:32:53'),
+(70, 1, 7, 'nydese@fxzig.com', 8, 'campaign', 23, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:26'),
+(71, 1, 7, 'bsmistry99@gmail.com', 8, 'campaign', 23, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:29'),
+(72, 1, NULL, 'vesatofo@forexzig.com', 8, 'campaign', 22, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:32'),
+(73, 1, NULL, 'asd@gmail.com', 8, 'campaign', 22, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:35'),
+(74, 1, NULL, 'vimuhoxe@cyclelove.cc', 8, 'campaign', 23, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:37'),
+(75, 1, NULL, 'test@gmail.com', 8, 'campaign', 23, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:43'),
+(76, 1, NULL, 'yy@yahoo.com', 8, 'campaign', 23, NULL, 'failed', 'Mailer Error: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting', '2025-07-10 07:44:46'),
+(77, 1, 7, 'nydese@fxzig.com', 10, 'campaign', 23, NULL, 'success', '', '2025-07-10 07:53:52'),
+(78, 1, 7, 'bsmistry99@gmail.com', 10, 'campaign', 23, NULL, 'success', '', '2025-07-10 07:53:57'),
+(79, 1, NULL, 'vesatofo@forexzig.com', 10, 'campaign', 22, NULL, 'success', '', '2025-07-10 07:54:01'),
+(80, 1, NULL, 'asd@gmail.com', 10, 'campaign', 22, NULL, 'success', '', '2025-07-10 07:54:06'),
+(81, 1, NULL, 'vimuhoxe@cyclelove.cc', 10, 'campaign', 23, NULL, 'success', '', '2025-07-10 07:54:10'),
+(82, 1, NULL, 'test@gmail.com', 10, 'campaign', 23, NULL, 'success', '', '2025-07-10 07:54:15'),
+(83, 1, NULL, 'yy@yahoo.com', 10, 'campaign', 23, NULL, 'success', '', '2025-07-10 07:54:20'),
+(84, 1, NULL, 'smt9296@gmail.com', 10, 'campaign', 24, NULL, 'success', '', '2025-07-12 06:01:28'),
+(85, 1, NULL, 'smt9296@gmail.com', 10, 'campaign', 24, NULL, 'success', '', '2025-07-12 06:03:29'),
+(86, 1, 7, 'nydese@fxzig.com', 10, 'campaign', 25, NULL, 'success', '', '2025-07-12 06:07:46'),
+(87, 1, 7, 'bsmistry99@gmail.com', 10, 'campaign', 25, NULL, 'success', '', '2025-07-12 06:07:51'),
+(88, 1, NULL, 'vesatofo@forexzig.com', 10, 'campaign', 25, NULL, 'success', '', '2025-07-12 06:07:55');
 
 -- --------------------------------------------------------
 
@@ -82758,7 +82809,7 @@ CREATE TABLE IF NOT EXISTS `log_message` (
   `type` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `log_message`
@@ -82797,18 +82848,25 @@ DROP TABLE IF EXISTS `send_email_contents`;
 CREATE TABLE IF NOT EXISTS `send_email_contents` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
-  `email_subject` varchar(255) DEFAULT NULL,
-  `email_content` longtext,
+  `schedule_date` date DEFAULT NULL,
+  `email_subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `email_content` blob,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `send_email_contents`
 --
 
-INSERT INTO `send_email_contents` (`id`, `user_id`, `email_subject`, `email_content`, `created_at`) VALUES
-(14, 8, 'vuvyvy', '<p>uyg</p>', '2025-07-05 10:33:48');
+INSERT INTO `send_email_contents` (`id`, `user_id`, `schedule_date`, `email_subject`, `email_content`, `created_at`) VALUES
+(18, 8, NULL, 'asdqe', 0x3c703e716571717765713c2f703e, '2025-07-07 06:28:22'),
+(14, 8, NULL, 'vuvyvy', 0x3c703e7579673c2f703e, '2025-07-05 10:33:48'),
+(21, 1, '2025-07-11', 'czxczxc', 0x3c703e7361646161733c2f703e, '2025-07-10 05:16:35'),
+(22, 1, '2025-07-10', 'sffsdf', 0x3c703e73646673647364663c2f703e, '2025-07-10 06:47:46'),
+(23, 1, '2025-07-10', 'zxczca', 0x3c703e6173646173646173643c2f703e, '2025-07-10 06:56:47'),
+(24, 1, '2025-07-12', 'zxczx', 0x3c6d65746120636861727365743d225554462d38223e0d0a202020203c6d657461206e616d653d2276696577706f72742220636f6e74656e743d2277696474683d6465766963652d77696474682c20696e697469616c2d7363616c653d312e30223e0d0a202020203c7469746c653e4578636c7573697665204f70706f7274756e69747920746f204a6f696e2053616e646970205375686167206f6e206120506f6463617374213c2f7469746c653e0d0a202020203c7374796c653e0d0a2020202020202020626f6479207b0d0a202020202020202020202020666f6e742d66616d696c793a20417269616c2c2073616e732d73657269663b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236639663966393b0d0a202020202020202020202020636f6c6f723a20233333333b0d0a2020202020202020202020206d617267696e3a20303b0d0a20202020202020202020202070616464696e673a20303b0d0a20202020202020207d0d0a20202020202020202e636f6e7461696e6572207b0d0a2020202020202020202020206d61782d77696474683a2036303070783b0d0a2020202020202020202020206d617267696e3a2032307078206175746f3b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236666663b0d0a20202020202020202020202070616464696e673a20303b0d0a202020202020202020202020626f726465722d7261646975733a203870783b0d0a202020202020202020202020626f782d736861646f773a20302034707820387078207267626128302c20302c20302c20302e31293b0d0a2020202020202020202020206f766572666c6f773a2068696464656e3b0d0a20202020202020207d0d0a20202020202020202e6865616465722d62616e6e6572207b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20233362376135373b202f2a204461726b20677265656e202a2f0d0a20202020202020202020202070616464696e673a20323070783b0d0a202020202020202020202020746578742d616c69676e3a2063656e7465723b0d0a202020202020202020202020636f6c6f723a20236666663b0d0a20202020202020207d0d0a20202020202020202e6865616465722d62616e6e6572206831207b0d0a2020202020202020202020206d617267696e3a20303b0d0a202020202020202020202020666f6e742d73697a653a20323870783b0d0a20202020202020207d0d0a20202020202020202e636f6e74656e74207b0d0a20202020202020202020202070616464696e673a20323070783b0d0a2020202020202020202020206c696e652d6865696768743a20312e363b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236666663b0d0a202020202020202020202020636f6c6f723a20233333333b0d0a20202020202020207d0d0a20202020202020202e686967686c69676874207b0d0a202020202020202020202020636f6c6f723a20236666633130373b202f2a2059656c6c6f77202a2f0d0a202020202020202020202020666f6e742d7765696768743a20626f6c643b0d0a20202020202020207d0d0a20202020202020202e6374612d627574746f6e207b0d0a202020202020202020202020646973706c61793a20696e6c696e652d626c6f636b3b0d0a20202020202020202020202070616464696e673a203132707820323570783b0d0a2020202020202020202020206d617267696e2d746f703a20323070783b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20233362376135373b202f2a204461726b20677265656e202a2f0d0a202020202020202020202020636f6c6f723a20236666666666663b0d0a202020202020202020202020746578742d6465636f726174696f6e3a206e6f6e653b0d0a202020202020202020202020666f6e742d7765696768743a20626f6c643b0d0a202020202020202020202020626f726465722d7261646975733a203570783b0d0a202020202020202020202020746578742d616c69676e3a2063656e7465723b0d0a20202020202020207d0d0a20202020202020202e6374612d627574746f6e3a686f766572207b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20233331363934633b202f2a20536c696768746c79206461726b657220677265656e202a2f0d0a20202020202020207d0d0a20202020202020202e666f6f746572207b0d0a202020202020202020202020746578742d616c69676e3a2063656e7465723b0d0a202020202020202020202020666f6e742d73697a653a20313270783b0d0a202020202020202020202020636f6c6f723a20233838383b0d0a20202020202020202020202070616464696e673a20323070783b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236631663166313b0d0a20202020202020207d0d0a20202020202020202e666f6f7465722070207b0d0a2020202020202020202020206d617267696e3a2035707820303b0d0a20202020202020207d0d0a202020203c2f7374796c653e0d0a0d0a0d0a202020203c64697620636c6173733d22636f6e7461696e6572223e0d0a20202020202020203c64697620636c6173733d226865616465722d62616e6e6572223e0d0a2020202020202020202020203c68313e4a6f696e2053616e646970205375686167206f6e206120506f6463617374213c2f68313e0d0a2020202020202020202020203c703e596f7572204761746577617920746f205265616c20457374617465205375636365737320696e2044756261693c2f703e0d0a20202020202020203c2f6469763e0d0a20202020202020203c64697620636c6173733d22636f6e74656e74223e0d0a2020202020202020202020203c703e48656c6c6f205b42726f6b6572e2809973204e616d655d2c3c2f703e0d0a2020202020202020202020203c703e5765e280997265206578636974656420746f206f6666657220796f7520616e203c7370616e20636c6173733d22686967686c69676874223e6578636c7573697665206f70706f7274756e6974793c2f7370616e3e20746f2073686f776361736520796f75722065787065727469736520616e6420696e736967687473206f6e204475626169e2809973207265616c20657374617465206d61726b6574206279206a6f696e696e672053616e6469702053756861672c20612072656e6f776e65642073616c657320737472617465676973742c20666f722061207370656369616c20706f646361737420657069736f64652e3c2f703e0d0a2020202020202020202020203c703e5468697320636f6c6c61626f726174696f6e206973206120756e697175652077617920746f2070726f6d6f746520796f757220736572766963657320746f206120776964652061756469656e63652c206761696e2076616c7561626c65206578706f737572652c20616e64206275696c6420637265646962696c69747920616d6f6e6720706f74656e7469616c20636c69656e7473206c6f6f6b696e6720666f72207265616c206573746174652065787065727469736520696e2044756261692e3c2f703e0d0a2020202020202020202020203c6833207374796c653d22636f6c6f723a20233362376135373b223e5370656369616c204f666665723a204f6e6c7920312c39393920414544213c2f68333e0d0a2020202020202020202020203c703e466f72206a75737420312c393939204145442c20796f75e280996c6c20626520666561747572656420696e20616e20696e736967687466756c20616e6420656e676167696e6720706f6463617374207768657265207765e280996c6c20636f7665723a3c2f703e0d0a2020202020202020202020203c756c3e0d0a202020202020202020202020202020203c6c693e4d61726b6574207472656e647320616e64206f70706f7274756e697469657320696e2044756261693c2f6c693e0d0a202020202020202020202020202020203c6c693e57687920636c69656e7473206e65656420616e206578706572742062726f6b657220666f72207265616c2065737461746520737563636573733c2f6c693e0d0a202020202020202020202020202020203c6c693e596f757220706572736f6e616c697a656420696e73696768747320616e642070726f66657373696f6e616c206164766963653c2f6c693e0d0a2020202020202020202020203c2f756c3e0d0a2020202020202020202020203c703e446f6ee2809974206d697373206f7574206f6e2074686973206f70706f7274756e69747920746f207265616368206e657720636c69656e747320616e64206d616b6520796f7572206d61726b2061732061207472757374656420657870657274213c2f703e0d0a2020202020202020202020203c703e3c6120687265663d2268747470733a2f2f796f7572776562736974652e636f6d2f626f6f6b2d706f64636173742220636c6173733d226374612d627574746f6e223e5265736572766520596f75722053706f74204e6f773c2f613e3c2f703e0d0a20202020202020203c2f6469763e0d0a202020203c2f6469763e, '2025-07-12 06:00:44'),
+(25, 1, '2025-07-12', 'vxcvdsfs', 0x3c6d65746120636861727365743d225554462d38223e0d0a202020203c6d657461206e616d653d2276696577706f72742220636f6e74656e743d2277696474683d6465766963652d77696474682c20696e697469616c2d7363616c653d312e30223e0d0a202020203c7469746c653e4578636c7573697665204f70706f7274756e69747920746f204a6f696e2053616e646970205375686167206f6e206120506f6463617374213c2f7469746c653e0d0a202020203c7374796c653e0d0a2020202020202020626f6479207b0d0a202020202020202020202020666f6e742d66616d696c793a20417269616c2c2073616e732d73657269663b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236639663966393b0d0a202020202020202020202020636f6c6f723a20233333333b0d0a2020202020202020202020206d617267696e3a20303b0d0a20202020202020202020202070616464696e673a20303b0d0a20202020202020207d0d0a20202020202020202e636f6e7461696e6572207b0d0a2020202020202020202020206d61782d77696474683a2036303070783b0d0a2020202020202020202020206d617267696e3a2032307078206175746f3b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236666663b0d0a20202020202020202020202070616464696e673a20303b0d0a202020202020202020202020626f726465722d7261646975733a203870783b0d0a202020202020202020202020626f782d736861646f773a20302034707820387078207267626128302c20302c20302c20302e31293b0d0a2020202020202020202020206f766572666c6f773a2068696464656e3b0d0a20202020202020207d0d0a20202020202020202e6865616465722d62616e6e6572207b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20233362376135373b202f2a204461726b20677265656e202a2f0d0a20202020202020202020202070616464696e673a20323070783b0d0a202020202020202020202020746578742d616c69676e3a2063656e7465723b0d0a202020202020202020202020636f6c6f723a20236666663b0d0a20202020202020207d0d0a20202020202020202e6865616465722d62616e6e6572206831207b0d0a2020202020202020202020206d617267696e3a20303b0d0a202020202020202020202020666f6e742d73697a653a20323870783b0d0a20202020202020207d0d0a20202020202020202e636f6e74656e74207b0d0a20202020202020202020202070616464696e673a20323070783b0d0a2020202020202020202020206c696e652d6865696768743a20312e363b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236666663b0d0a202020202020202020202020636f6c6f723a20233333333b0d0a20202020202020207d0d0a20202020202020202e686967686c69676874207b0d0a202020202020202020202020636f6c6f723a20236666633130373b202f2a2059656c6c6f77202a2f0d0a202020202020202020202020666f6e742d7765696768743a20626f6c643b0d0a20202020202020207d0d0a20202020202020202e6374612d627574746f6e207b0d0a202020202020202020202020646973706c61793a20696e6c696e652d626c6f636b3b0d0a20202020202020202020202070616464696e673a203132707820323570783b0d0a2020202020202020202020206d617267696e2d746f703a20323070783b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20233362376135373b202f2a204461726b20677265656e202a2f0d0a202020202020202020202020636f6c6f723a20236666666666663b0d0a202020202020202020202020746578742d6465636f726174696f6e3a206e6f6e653b0d0a202020202020202020202020666f6e742d7765696768743a20626f6c643b0d0a202020202020202020202020626f726465722d7261646975733a203570783b0d0a202020202020202020202020746578742d616c69676e3a2063656e7465723b0d0a20202020202020207d0d0a20202020202020202e6374612d627574746f6e3a686f766572207b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20233331363934633b202f2a20536c696768746c79206461726b657220677265656e202a2f0d0a20202020202020207d0d0a20202020202020202e666f6f746572207b0d0a202020202020202020202020746578742d616c69676e3a2063656e7465723b0d0a202020202020202020202020666f6e742d73697a653a20313270783b0d0a202020202020202020202020636f6c6f723a20233838383b0d0a20202020202020202020202070616464696e673a20323070783b0d0a2020202020202020202020206261636b67726f756e642d636f6c6f723a20236631663166313b0d0a20202020202020207d0d0a20202020202020202e666f6f7465722070207b0d0a2020202020202020202020206d617267696e3a2035707820303b0d0a20202020202020207d0d0a202020203c2f7374796c653e0d0a0d0a0d0a202020203c64697620636c6173733d22636f6e7461696e6572223e0d0a20202020202020203c64697620636c6173733d226865616465722d62616e6e6572223e0d0a2020202020202020202020203c68313e4a6f696e2053616e646970205375686167206f6e206120506f6463617374213c2f68313e0d0a2020202020202020202020203c703e596f7572204761746577617920746f205265616c20457374617465205375636365737320696e2044756261693c2f703e0d0a20202020202020203c2f6469763e0d0a20202020202020203c64697620636c6173733d22636f6e74656e74223e0d0a2020202020202020202020203c703e48656c6c6f205b42726f6b6572e2809973204e616d655d2c3c2f703e0d0a2020202020202020202020203c703e5765e280997265206578636974656420746f206f6666657220796f7520616e203c7370616e20636c6173733d22686967686c69676874223e6578636c7573697665206f70706f7274756e6974793c2f7370616e3e20746f2073686f776361736520796f75722065787065727469736520616e6420696e736967687473206f6e204475626169e2809973207265616c20657374617465206d61726b6574206279206a6f696e696e672053616e6469702053756861672c20612072656e6f776e65642073616c657320737472617465676973742c20666f722061207370656369616c20706f646361737420657069736f64652e3c2f703e0d0a2020202020202020202020203c703e5468697320636f6c6c61626f726174696f6e206973206120756e697175652077617920746f2070726f6d6f746520796f757220736572766963657320746f206120776964652061756469656e63652c206761696e2076616c7561626c65206578706f737572652c20616e64206275696c6420637265646962696c69747920616d6f6e6720706f74656e7469616c20636c69656e7473206c6f6f6b696e6720666f72207265616c206573746174652065787065727469736520696e2044756261692e3c2f703e0d0a2020202020202020202020203c6833207374796c653d22636f6c6f723a20233362376135373b223e5370656369616c204f666665723a204f6e6c7920312c39393920414544213c2f68333e0d0a2020202020202020202020203c703e466f72206a75737420312c393939204145442c20796f75e280996c6c20626520666561747572656420696e20616e20696e736967687466756c20616e6420656e676167696e6720706f6463617374207768657265207765e280996c6c20636f7665723a3c2f703e0d0a2020202020202020202020203c756c3e0d0a202020202020202020202020202020203c6c693e4d61726b6574207472656e647320616e64206f70706f7274756e697469657320696e2044756261693c2f6c693e0d0a202020202020202020202020202020203c6c693e57687920636c69656e7473206e65656420616e206578706572742062726f6b657220666f72207265616c2065737461746520737563636573733c2f6c693e0d0a202020202020202020202020202020203c6c693e596f757220706572736f6e616c697a656420696e73696768747320616e642070726f66657373696f6e616c206164766963653c2f6c693e0d0a2020202020202020202020203c2f756c3e0d0a2020202020202020202020203c703e446f6ee2809974206d697373206f7574206f6e2074686973206f70706f7274756e69747920746f207265616368206e657720636c69656e747320616e64206d616b6520796f7572206d61726b2061732061207472757374656420657870657274213c2f703e0d0a2020202020202020202020203c703e3c6120687265663d2268747470733a2f2f796f7572776562736974652e636f6d2f626f6f6b2d706f64636173742220636c6173733d226374612d627574746f6e223e5265736572766520596f75722053706f74204e6f773c2f613e3c2f703e0d0a20202020202020203c2f6469763e0d0a202020203c2f6469763e, '2025-07-12 06:07:32');
 
 -- --------------------------------------------------------
 
@@ -82826,17 +82884,17 @@ CREATE TABLE IF NOT EXISTS `smtp_configs` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `smtp_configs`
 --
 
 INSERT INTO `smtp_configs` (`id`, `smtp_username`, `app_password`, `status`, `admin_id`, `created_at`, `updated_at`) VALUES
-(9, 'bsmistry55@gmail.com', 'cHB6YXhzZ3lncHhpZGhnaQ', 1, 8, '2025-06-30 09:59:39', '2025-07-05 10:32:26'),
-(8, 'sm9296@gmail.com', 'WkcxMFkyOTBibkJuYm1abg', 1, 1, '2025-06-30 09:59:09', '2025-07-01 09:44:53'),
-(10, 'smt9296@gmail.com', 'ZG10Y290bnBnbmZnZmpydA', 1, 8, '2025-06-30 12:32:37', '2025-07-05 11:11:13'),
-(11, 'xvxcv@gdfg.ssa', 'ZGFzZGFkc2Rhc2Rhc2RzYQ', 1, 1, '2025-07-04 11:49:40', '2025-07-05 09:54:11');
+(9, 'bsmistry55@gmail.com', 'cHB6YXhzZ3lncHhpZGhnaQ', 0, 8, '2025-06-30 09:59:39', '2025-07-05 10:32:26'),
+(8, 'sm9296@gmail.com', 'WkcxMFkyOTBibkJuYm1abg', 0, 1, '2025-06-30 09:59:09', '2025-07-01 09:44:53'),
+(10, 'smt9296@gmail.com', 'ZG10Y290bnBnbmZnZmpydA', 1, 1, '2025-06-30 12:32:37', '2025-07-10 07:53:13'),
+(11, 'xvxcv@gdfg.ssa', 'ZGFzZGFkc2Rhc2Rhc2RzYQ', 0, 1, '2025-07-04 11:49:40', '2025-07-05 09:54:11');
 
 -- --------------------------------------------------------
 
